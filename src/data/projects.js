@@ -1,4 +1,4 @@
-import crudImg from "../assets/CRUD.png";
+import crudImg from "../assets/crud.png";
 import empImg from "../assets/2.png";
 import pyImg from "../assets/python.png";
 import travelImg from "../assets/travel.png";
