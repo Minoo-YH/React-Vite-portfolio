@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root { height: 100%; }
+
+  /* ✅ سازگاری کامل: هشدار webhint رفع شد */
+  html {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body { @apply bg-black text-white; }
+
+  /* ✅ رابط تاریکِ مرورگرها (اسکرول‌بار/کنترل‌ها) */
+  :root { color-scheme: dark light; }
+}
+
+/* ✅ وقتی با HashLink می‌ری، هدینگ‌ها زیر navbar نرن */
+#about, #service, #projects, #contact { scroll-margin-top: 80px; }
+
+/* ✅ پس‌زمینه‌ی باد/کانواس زیر همه‌چیز، ثابت و بدون تعامل */
+canvas {
+  position: fixed;
+  inset: 0;           /* top/right/bottom/left: 0 */
+  z-index: 0;         /* زیر محتوا (نه منفی) */
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+/* ✅ مطمئن شو محتوای اصلی بالای canvas است */
+.app-shell { position: relative; z-index: 1; }
+

@@ -1,0 +1,373 @@
+/* ========================
+ table of contents
+===========================
+1. Left Section ==> Buttons
+2. Right Section ==> Card & Gallery
+3. Responsive Design (media query)
+4. Services Section Styling (added)
+*/
+
+/* ==============================
+1. Left Section ==> Buttons
+=============================== */
+main.flex {
+  gap: 2.64rem;
+  align-items: start;
+}
+
+main section.left-section.flex {
+  flex-direction: column;
+  gap: 10px;
+}
+
+main section.left-section.flex button {
+  background-color: rgba(36, 37, 46, 1);
+  width: 11rem;
+  padding: 0.75rem 0;
+  text-align: center;
+  font-size: 1.05rem;
+  text-transform: capitalize;
+  opacity: 0.5;
+  border-radius: 5px;
+  transition: 0.3s;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+main section.left-section.flex button:hover {
+  opacity: 1;
+}
+
+main section.left-section.flex button.active {
+  opacity: 1;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+  padding: 0.8rem 0;
+  border: 1px solid var(--blue);
+  background-color: rgba(36, 37, 46, 0.85);
+}
+
+.light main section.left-section.flex button.active {
+  border: 1px solid #000;
+}
+
+/* ==============================
+2. Right Section ==> Card & Gallery
+================================== */
+
+main section.right-section.flex {
+  flex-grow: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 2rem;
+}
+
+/* Card */
+.card {
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.16), 1px 1px 1px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(93, 188, 252, 0.3);
+  border-radius: 5px;
+  transition: 0.3s;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05)
+  );
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  padding-bottom: 1rem;
+}
+
+.light .card,
+.light .card:hover {
+  border: none;
+}
+
+.card:hover {
+  border: 1px solid var(--blue);
+  rotate: 1deg;
+  scale: 1.01;
+}
+
+/* Image Gallery */
+.image-gallery {
+  display: flex;
+  gap: 8px;
+  padding: 0.75rem 0;
+  justify-content: center;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue) transparent;
+  margin-bottom: 1rem;
+}
+
+.image-gallery::-webkit-scrollbar {
+  height: 6px;
+}
+
+.image-gallery::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.image-gallery::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  border-radius: 3px;
+}
+
+.image-gallery img {
+  border-radius: 5px;
+  object-fit: cover;
+  height: 160px;
+  width: 140px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.07);
+}
+
+/* Card content box */
+.card .box {
+  padding: 1rem 0.8rem 0 0.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  text-align: center;
+}
+
+.card .box .title {
+  color: var(--title);
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.card .box .sub-title {
+  color: var(--subtitle);
+  font-size: 0.85rem;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  min-height: 1.2rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Description */
+.card .box .description {
+  color: var(--subtitle);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.8rem auto 1.2rem auto;
+  max-height: none !important;
+  overflow: visible !important;
+  text-align: center;
+  padding: 0 1rem;
+  white-space: normal;
+  width: 90%;
+}
+
+.card .box .description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card .box .description::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  border-radius: 3px;
+}
+
+/* ==============================
+GitHub + More Button Alignment
+=============================== */
+.card .box .icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: auto;
+  flex-wrap: nowrap; /* keep them on same line */
+}
+
+/* GitHub Link */
+.card a.link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #22c55e;
+  text-decoration: none;
+  cursor: pointer;
+  gap: 8px;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.card a.link:hover {
+  text-decoration: underline;
+  color: #3b82f6;
+}
+
+/* More Button */
+.more-btn {
+  background: none;
+  border: none;
+  color: #22c55e;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.more-btn:hover {
+  text-decoration: underline;
+  color: #3b82f6;
+}
+
+/* Remove arrow icon from more-btn */
+.icon-arrow-right {
+  display: none;
+}
+
+/* =====================================
+3. Responsive Design (media query)
+====================================== */
+
+@media (max-width: 900px) {
+  main.flex {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  main section.left-section.flex {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
+  main section.left-section.flex button {
+    width: 7rem;
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
+  }
+
+  main section.right-section.flex {
+    justify-content: center;
+  }
+
+  .card {
+    width: 90vw;
+    max-width: 400px;
+  }
+
+  .image-gallery img {
+    height: 120px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+  .image-gallery {
+    gap: 6px;
+    padding: 0.5rem 0.3rem 0 0.3rem;
+  }
+
+  .image-gallery img {
+    height: 100px;
+    width: 80px;
+  }
+
+  main section.left-section.flex button {
+    width: 6rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ==============================
+4. Services Section Styling (added)
+================================== */
+#service {
+  background-color: #000;
+  color: white;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+#service .card {
+  background-color: #2d2d2d;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+  border: none;
+  box-shadow: none;
+}
+
+#service .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(72, 191, 242, 0.5);
+}
+
+#service .card > div:first-child {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: right;
+  background: linear-gradient(90deg, #16a34a, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+#service h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #22c55e, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+#service p {
+  color: #d1d5db;
+  flex-grow: 1;
+  margin-bottom: 0.5rem;
+}
+
+#service p.expanded {
+  color: #9ca3af;
+  margin-top: 0.5rem;
+}
+
+#service button {
+  background: none;
+  border: none;
+  color: #22c55e;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+  transition: color 0.3s ease;
+  align-self: flex-start;
+  font-size: 1rem;
+}
+
+#service button:hover {
+  color: #3b82f6;
+}
