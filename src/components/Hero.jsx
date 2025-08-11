@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashLink } from 'react-router-hash-link';
-import HeroImg from '../assets/Minoo.png';
-import ResumeFile from '../assets/Resume2024.pdf';
+import HeroImg from '../assets/minoo.png';
+import ResumeFile from '../assets/resume2024.pdf';
 import WindBackground from './WindBackground';
 
 const Hero = () => {
