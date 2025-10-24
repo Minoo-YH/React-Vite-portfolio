@@ -42,9 +42,9 @@ const About = () => {
           />
         </div>
 
-        {/* متن + مهارت‌ها */}
+       
         <div className="flex-1 md:px-2 lg:px-4 text-center md:text-left">
-          {/* متن یکدست و خوانا */}
+          
           <div className="mx-auto md:mx-0 max-w-[62ch] text-justify text-gray-300 space-y-5 sm:space-y-6
                           text-base sm:text-lg leading-7 sm:leading-8">
             <p>
@@ -62,7 +62,7 @@ const About = () => {
             </p>
           </div>
 
-          {/* Progress bars هم‌ردیف و تمیز */}
+       
           <div className="mt-8 sm:mt-10 space-y-4 sm:space-y-5">
             <ProgressBar label="HTML & CSS"        width="100%" />
             <ProgressBar label="React"             width="90%" />
@@ -70,11 +70,13 @@ const About = () => {
             <ProgressBar label="JavaScript"        width="80%" />
             <ProgressBar label="React Native Expo" width="60%" />
             <ProgressBar label="Tailwind CSS"      width="70%" />
+            <ProgressBar label="Pythpn"            width="80%" />
+            <ProgressBar label="c++"               width="50%" />
           </div>
         </div>
       </div>
 
-      {/* آمار کوتاه */}
+    
       <div className="mt-14 sm:mt-16 flex flex-col sm:flex-row justify-center sm:justify-between text-center gap-8 sm:gap-12 max-w-md w-full">
         <div className="flex-1">
           <h3 className="text-4xl sm:text-5xl font-extrabold tracking-tight
