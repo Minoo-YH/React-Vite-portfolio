@@ -5,6 +5,9 @@ import travelImg from "../assets/travel.png";
 import wpImg from "../assets/1.png";
 import bankImg from "../assets/bnk.png";
 import rnImg from "../assets/vesko.png";
+import flightImg from "../assets/flightgame.jpeg";
+import barbershop from "../assets/barbershop.jpeg";
+import react19Img from "../assets/react19.png"; 
 
 export const myProjects = [
   {
@@ -29,15 +32,15 @@ export const myProjects = [
     imgPaths: [pyImg],
     subtitle: "Some python exercises",
     description: "School project with python",
-    githubLink: "https://github.com/Minoo-YH/Python",
+    githubLink: "https://github.com/Minoo-YH/Metropolia-python3",
   },
   {
     projectTitle: "Full-stack website",
     category: ["react", "node", "express", "mongodb"],
     imgPaths: [travelImg],
-    subtitle: "Travel website",
+    subtitle: "Group project — Travel website",
     description:
-      "My classmates and I built a full-stack travel agency project using React, Node.js, Express, and MongoDB. We integrated Stripe for payments and included an admin panel with a dashboard. The site handles images via an API, and we ensured security with unit tests and token authentication. Working as a team, we faced many challenges but gained valuable experience building this project from scratch.",
+      "As a group, we built a full-stack travel agency project using React, Node.js, Express, and MongoDB. We integrated Stripe for payments and included an admin panel with a dashboard. The site handles images via an API, and we ensured security with unit tests and token authentication. Working as a team, we faced many challenges but gained valuable experience building this project from scratch.",
     githubLink: "https://github.com/oliviaskye/travel-site",
   },
   {
@@ -46,7 +49,7 @@ export const myProjects = [
     imgPaths: [wpImg],
     subtitle: "Update the website + add cyber security + SEO",
     description:
-      "For my first internship, I joined Coreorient OY as a web developer. I helped renew their old website using WordPress, which I learned in just a few days. I fixed their issues and also built a PHP website from scratch. Their site had not been updated for a long time and suffered from spam, security problems, and poor SEO. I resolved these issues and improved the SEO as well. I really enjoyed the experience and learned a lot. They gave me a 5/5 final evaluation.",
+      "For my first internship, I joined Coreorient OY as a web developer. I renewed their old website in WordPress, fixed security/spam issues, improved SEO, and even built a PHP site from scratch. Final evaluation: 5/5.",
     githubLink: "https://github.com/Minoo-YH/Coreorient-website",
   },
   {
@@ -54,17 +57,48 @@ export const myProjects = [
     category: ["c++"],
     imgPaths: [bankImg],
     subtitle: "Bank management system",
-    description: "School project with c++",
-    githubLink: "https://github.com/Minoo-YH/Coreorient-website",
+    description: "School project with C++",
+    githubLink: "https://github.com/Minoo-YH/BankManagmentSystem-C-",
   },
   {
     projectTitle: "React native frontend mobile developer with expo",
     category: ["react native expo", "typescript"],
     imgPaths: [rnImg],
     subtitle: "Vesko mobile app internship",
-    description: `My second internship was a great experience. At first, I wasn’t accepted anywhere, but I kept pushing forward. I asked Vesko for a chance and explained that I didn’t know React Native, which is quite different from React. They invited me for a practical interview and gave me a small task. Although I didn’t do the task perfectly, they accepted me because they really liked my frontend design skills. They appreciated the color combinations I added to their theme and asked me to join and help improve their work.
-
-I learned React Native within two weeks and developed the notification feature for their mobile app, similar to Instagram. I also helped with design and color choices because I have strong knowledge in that area. They gave me a 5/5 rating for my performance.`,
-    githubLink: "https://github.com/Minoo-YH/Coreorient-website",
+    description:
+      "My second internship. I quickly learned React Native and delivered the notifications feature (similar to Instagram), plus design/color improvements. Final evaluation: 5/5.",
+    githubLink: null,
+    isPrivate: true,
+  },
+  {
+    projectTitle: "Flight Game — Python Flight Booking Simulation",
+    category: ["python", "mysql", "cli"],
+    imgPaths: [flightImg],
+    subtitle: "Group project (3 contributors) — Console app",
+    description:
+      "A Python-based flight booking simulation. Travel between destinations, track total KM, and unlock membership tiers (Silver/Gold/Diamond). Includes login/register (WIP), user profile, and DB-backed queries.",
+    githubLink:
+      "https://github.com/Minoo-YH/Metropoli-ohjelmointi1-python-project-.git",
+  },
+  {
+    projectTitle: "Barbershop website",
+    category: ["react", "tailwind"],
+    imgPaths: [barbershop],
+    subtitle: "Responsive landing site",
+    description:
+      "A modern barbershop website built with React and Tailwind CSS: clean sections, responsive layout, and component-based design.",
+    githubLink: "https://github.com/IraQ-N/barber-shop",
+  },
+  {
+    projectTitle: "React 19 Workshop — Future Front Development",
+    category: ["react", "react 19", "workshop"],
+    imgPaths: [react19Img],
+    subtitle: "Hands-on workshop",
+    description:
+      "We attended a React 19 workshop at Future Front Development and applied the latest updates in a small demo project. It was a great chance to learn new patterns/APIs and refresh best practices, then integrate those learnings back into our codebase.",
+    githubLink: null,
+    isWorkshop: true,
   },
 ];
+
+
