@@ -8,6 +8,10 @@ import rnImg from "../assets/vesko.png";
 import flightImg from "../assets/flightgame.jpeg";
 import barbershop from "../assets/barbershop.jpeg";
 import react19Img from "../assets/react19.png"; 
+import aiRouterImg from "../assets/AI.png";
+//import lighthouseImg from "../assets/lighthouse.png";
+import luxurywebImg from "../assets/luxuryweb.png";
+
 
 export const myProjects = [
   {
@@ -99,6 +103,28 @@ export const myProjects = [
     githubLink: null,
     isWorkshop: true,
   },
+  {
+  projectTitle: "Metropolia AI Service Router",
+  category: ["flask", "python", "ai-concept"],
+  imgPaths: [aiRouterImg],
+  subtitle: "AI-style assistant concept demo for Metropolia students",
+  description:
+    "A small Flask web app that simulates an AI assistant to help Metropolia students route their questions to the right service. The user writes a free-text question, and the app detects the intent, suggests the correct Metropolia service, shows useful links, and generates a polite example email in English. The core logic is a rule-based 'fake AI' function designed so it can later be replaced by a real LLM backend.",
+  githubLink: "https://github.com/Minoo-YH/metropolia-ai-service-router",
+  demoLink: "https://minoo-yh.github.io/metropolia-ai-service-router/",
+},
+{
+  projectTitle: "LuxeScents Perfume Store",
+  category: ["react", "tailwind", "frontend"],
+  imgPaths: [luxurywebImg],
+  subtitle: "Modern perfume landing page",
+  description:
+    "A modern, responsive perfume store landing page built with React and Tailwind CSS. Focused on clean layout, sections for featured products, and a smooth user experience. This project showcases my front-end skills in styling, components, and responsive design.",
+  githubLink: "https://github.com/Minoo-YH/luxescents-perfume-site",
+  demoLink: "https://minoo-yh.github.io/luxescents-perfume-site/",
+},
+
+
 ];
 
 
