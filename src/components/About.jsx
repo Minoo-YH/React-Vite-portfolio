@@ -1,96 +1,156 @@
-import React from 'react';
-import AboutImg from '../assets/about.png';
+import React, { useEffect, useRef, useState } from "react";
+import AboutImg from "../assets/about.png";
 
-
-const ProgressBar = ({ label, width }) => (
-  <div className="grid items-center gap-3 mb-4 w-full max-w-xl mx-auto
-                  grid-cols-[10rem,1fr] sm:grid-cols-[11rem,1fr]">
-    <span
-      className="text-xs sm:text-sm tracking-wide text-gray-400 uppercase whitespace-nowrap truncate"
-      title={label}
+/* =========================
+   ProgressBar (animated on scroll)
+========================= */
+const ProgressBar = ({ label, value, isVisible }) => {
+  return (
+    <div
+      className="grid items-center gap-3 mb-4 w-full max-w-xl mx-auto
+                    grid-cols-[10rem,1fr] sm:grid-cols-[11rem,1fr]"
     >
-      {label}
-    </span>
-    <div className="h-2.5 bg-gray-700/70 rounded-full">
-      <div
-        className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-500 transition-transform duration-300 hover:scale-[1.02]"
-        style={{ width }}
-      />
-    </div>
-  </div>
-);
+      <span className="text-xs sm:text-sm tracking-wide text-gray-400 uppercase truncate">
+        {label}
+      </span>
 
+      <div className="h-2.5 bg-gray-700/70 rounded-full overflow-hidden">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-500
+                     transition-all duration-1000 ease-out"
+          style={{ width: isVisible ? `${value}%` : "0%" }}
+        />
+      </div>
+    </div>
+  );
+};
+
+/* =========================
+   CountUp Hook
+========================= */
+const useCountUp = (end, duration = 1000, trigger = false) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!trigger) return;
+
+    let start = 0;
+    const stepTime = Math.max(Math.floor(duration / end), 20);
+
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= end) clearInterval(timer);
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [trigger, end, duration]);
+
+  return count;
+};
+
+/* =========================
+   Component
+========================= */
 const About = () => {
+  const ref = useRef();
+  const [visible, setVisible] = useState(false);
+
+  // Detect scroll visibility
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // counters
+  const years = useCountUp(2, 800, visible);
+  const projects = useCountUp(15, 1200, visible);
+
   return (
     <section
+      ref={ref}
       id="about"
       className="bg-black text-white py-24 sm:py-28 px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col items-center"
     >
-      {/* عنوان بخش */}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-center mb-12 sm:mb-16
-                     text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+      {/* Title */}
+      <h2
+        className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-12 sm:mb-16
+                     text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500"
+      >
         About Me
       </h2>
 
       <div className="flex flex-col md:flex-row items-center md:items-start md:gap-12 max-w-5xl w-full">
-        {/* تصویر */}
-        <div className="rounded-full p-[4px] bg-gradient-to-r from-green-400 to-blue-500 mb-8 md:mb-0 shrink-0">
+        {/* Image */}
+        <div className="rounded-full p-[4px] bg-gradient-to-r from-green-400 to-blue-500 mb-8 md:mb-0">
           <img
             src={AboutImg}
-            alt="A portrait of the developer"
-            className="rounded-full object-cover w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56"
+            alt="Developer"
+            className="rounded-full object-cover w-40 h-40 md:w-52 md:h-52
+                       transition duration-300 hover:scale-105"
           />
         </div>
 
-       
-        <div className="flex-1 md:px-2 lg:px-4 text-center md:text-left">
-          
-          <div className="mx-auto md:mx-0 max-w-[62ch] text-justify text-gray-300 space-y-5 sm:space-y-6
-                          text-base sm:text-lg leading-7 sm:leading-8">
+        {/* Text */}
+        <div className="flex-1 text-center md:text-left">
+          <div className="max-w-[62ch] mx-auto md:mx-0 text-gray-300 space-y-6 text-base sm:text-lg leading-8">
             <p>
-              I’m a passionate full-stack web and frontend mobile developer who believes technology
-              should bring joy and simplicity to people’s lives. I don’t just build applications—I craft
-              meaningful experiences that are beautiful, intuitive, and welcoming. With a strong foundation
-              in both frontend and backend, combined with an artistic vision, I pay attention to every detail
-              to create designs that resonate emotionally and function seamlessly.
+              I’m a passionate full-stack web and mobile developer focused on
+              building meaningful and engaging digital experiences. Alongside my
+              technical skills, I have a strong interest in UI/UX design, with a
+              good understanding of color theory, typography, and visual
+              hierarchy. I strive to create products that are not only
+              functional, but also visually appealing and user-friendly.
             </p>
             <p>
-              Learning fuels me, and I embrace every opportunity to grow and explore new ideas. More than
-              just coding, I see my work as a way to connect, inspire, and make a positive difference.
-              I’m excited to collaborate with others who share this vision and build products that feel
-              truly alive and human.
+              I have experience working with modern development methodologies
+              such as Agile and Scrum, and I am comfortable using project
+              management tools like Jira and Trello. I am a quick learner who
+              adapts rapidly to new technologies and environments, and I thrive
+              in team settings with strong collaboration and flexibility. I am
+              fluent in English, able to communicate in Finnish, and Persian is
+              my native language.
             </p>
           </div>
 
-       
-          <div className="mt-8 sm:mt-10 space-y-4 sm:space-y-5">
-            <ProgressBar label="HTML & CSS"        width="100%" />
-            <ProgressBar label="React"             width="90%" />
-            <ProgressBar label="Node"              width="90%" />
-            <ProgressBar label="JavaScript"        width="80%" />
-            <ProgressBar label="React Native Expo" width="60%" />
-            <ProgressBar label="Tailwind CSS"      width="70%" />
-            <ProgressBar label="Pythpn"            width="80%" />
-            <ProgressBar label="c++"               width="50%" />
+          {/* Skills */}
+          <div className="mt-10">
+            <ProgressBar label="HTML & CSS" value={100} isVisible={visible} />
+            <ProgressBar label="React" value={90} isVisible={visible} />
+            <ProgressBar label="Node.js" value={80} isVisible={visible} />
+            <ProgressBar label="JavaScript" value={80} isVisible={visible} />
+            <ProgressBar label="React Native" value={70} isVisible={visible} />
+            <ProgressBar label="Tailwind CSS" value={80} isVisible={visible} />
+            <ProgressBar label="Python" value={80} isVisible={visible} />
+            <ProgressBar label="C++" value={50} isVisible={visible} />
+            <ProgressBar label="Java" value={60} isVisible={visible} />
           </div>
         </div>
       </div>
 
-    
-      <div className="mt-14 sm:mt-16 flex flex-col sm:flex-row justify-center sm:justify-between text-center gap-8 sm:gap-12 max-w-md w-full">
-        <div className="flex-1">
-          <h3 className="text-4xl sm:text-5xl font-extrabold tracking-tight
-                         text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-            2+
+      {/* Stats */}
+      <div className="mt-16 flex gap-12 text-center">
+        <div>
+          <h3 className="text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+            {years}+
           </h3>
-          <p className="text-sm sm:text-base text-gray-400 mt-1">Years Experience</p>
+          <p className="text-gray-400 mt-2">Years Experience</p>
         </div>
-        <div className="flex-1">
-          <h3 className="text-4xl sm:text-5xl font-extrabold tracking-tight
-                         text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-            15+
+
+        <div>
+          <h3 className="text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+            {projects}+
           </h3>
-          <p className="text-sm sm:text-base text-gray-400 mt-1">Projects Completed</p>
+          <p className="text-gray-400 mt-2">Projects Completed</p>
         </div>
       </div>
     </section>
@@ -98,7 +158,3 @@ const About = () => {
 };
 
 export default About;
-
-
-
-
