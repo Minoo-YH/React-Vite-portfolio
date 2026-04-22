@@ -1,31 +1,74 @@
 import React, { useState } from "react";
 
 const services = [
-  { id: 1, title: "Web Design", description: "Creating visually appealing and user-friendly web designs.", fullDescription: "This includes layout, color schemes, typography, and overall aesthetics for websites." },
-  { id: 2, title: "Frontend Development", description: "Building responsive and interactive user interfaces.", fullDescription: "Using React.js with the flexibility to switch to any language based on customer needs. I’m a quick learner and excited to be part of challenging and innovative ideas." },
-  { id: 3, title: "Backend Development", description: "Developing robust server-side logic and databases.", fullDescription: "Using Node.js or Python with databases like MySQL, SQL, or MongoDB." },
-  { id: 4, title: "Full-Stack Development", description: "Combining both frontend and backend development skills.", fullDescription: "As a Full-Stack Developer, I take pride in building complete applications that just work—smoothly and beautifully..." },
-  { id: 5, title: "Cybersecurity Junior", description: "Integrating security best practices to prevent vulnerabilities.", fullDescription: "Protect against SQLi, XSS, CSRF. SSL/TLS, auth hardening, input validation, etc." },
-  { id: 6, title: "Cloud Computing", description: "Deploying scalable apps on Azure and AWS.", fullDescription: "Azure App Services/Functions/SQL, AWS EC2/S3/Lambda, security and cost-optimisation." },
+  {
+    id: 1,
+    title: "Frontend Development",
+    description: "Design-driven, modern, and responsive interfaces.",
+    fullDescription:
+      "Frontend is where I truly express my creativity. With a strong interest in art, colors, and design, I focus on crafting visually engaging and emotionally appealing interfaces. I pay close attention to details, typography, and user experience.",
+  },
+  {
+    id: 2,
+    title: "Backend Development",
+    description: "Flexible, reliable, and problem-solving focused.",
+    fullDescription:
+      "I can build backend systems using Node.js or Python, design databases like MongoDB/MySQL, and create APIs.",
+  },
+  {
+    id: 3,
+    title: "Full-Stack Development",
+    description: "From idea to complete working product.",
+    fullDescription:
+      "I enjoy turning ideas into real applications using both frontend and backend technologies.",
+  },
+  {
+    id: 4,
+    title: "Security-First Mindset",
+    description: "Building safe and trustworthy applications.",
+    fullDescription:
+      "Security is always a priority for me. I focus on building safe and reliable applications.",
+  },
+  {
+    id: 5,
+    title: "Creative Projects",
+    description: "Building ideas and experimenting.",
+    fullDescription:
+      "I enjoy creating personal projects to explore creativity and improve my skills.",
+  },
 ];
 
 const Services = () => {
-  const [expandedServiceId, setExpandedServiceId] = useState(null);
-  const toggleReadMore = (id) => setExpandedServiceId(expandedServiceId === id ? null : id);
+  const [activeId, setActiveId] = useState(null);
 
   return (
     <div className="bg-black text-white py-20" id="service">
       <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Services</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+          Services
+        </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {services.map((service) => (
-            <div key={service.id} className="bg-gray-800 p-6 rounded-lg hover:shadow-lg transform transition-transform duration-300 hover:scale-105 flex flex-col">
-              <div className="text-right text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-400">{service.id}</div>
-              <h3 className="mt-2 text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">{service.title}</h3>
-              <p className="mt-2 text-gray-300 flex-grow">{service.description}</p>
-              {expandedServiceId === service.id && (<p className="mt-2 text-gray-400">{service.fullDescription}</p>)}
-              <button onClick={() => toggleReadMore(service.id)} className="mt-4 inline-block text-green-400 hover:text-blue-500 self-start">
-                {expandedServiceId === service.id ? "Read Less" : "Read More"}
+          {services.map((s) => (
+            <div
+              key={s.id}
+              className="bg-gray-800 p-6 rounded-lg hover:scale-105 transition"
+            >
+              <h3 className="text-xl font-bold text-green-400">{s.title}</h3>
+
+              <p className="text-gray-300 mt-2">{s.description}</p>
+
+              {activeId === s.id && (
+                <p className="text-gray-400 mt-2 text-sm">
+                  {s.fullDescription}
+                </p>
+              )}
+
+              <button
+                onClick={() => setActiveId(activeId === s.id ? null : s.id)}
+                className="mt-3 text-blue-400"
+              >
+                {activeId === s.id ? "Read Less" : "Read More"}
               </button>
             </div>
           ))}
@@ -36,4 +79,3 @@ const Services = () => {
 };
 
 export default Services;
-
