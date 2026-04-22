@@ -1,7 +1,7 @@
 import React from 'react';
 import AboutImg from '../assets/about.png';
 
-/* =============== ProgressBar: Grid با ستون ثابت برای لیبل =============== */
+
 const ProgressBar = ({ label, width }) => (
   <div className="grid items-center gap-3 mb-4 w-full max-w-xl mx-auto
                   grid-cols-[10rem,1fr] sm:grid-cols-[11rem,1fr]">

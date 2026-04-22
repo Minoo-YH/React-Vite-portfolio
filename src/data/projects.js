@@ -7,11 +7,12 @@ import bankImg from "../assets/bnk.png";
 import rnImg from "../assets/vesko.png";
 import flightImg from "../assets/flightgame.jpeg";
 import barbershop from "../assets/barbershop.jpeg";
-import react19Img from "../assets/react19.png"; 
+import react19Img from "../assets/react19.png";
 import aiRouterImg from "../assets/AI.png";
 //import lighthouseImg from "../assets/lighthouse.png";
 import luxurywebImg from "../assets/luxuryweb.png";
-
+import helpCimage from "../assets/helpC.png";
+import lastflight from "../assets/lastflight.png";
 
 export const myProjects = [
   {
@@ -104,27 +105,51 @@ export const myProjects = [
     isWorkshop: true,
   },
   {
-  projectTitle: "Metropolia AI Service Router",
-  category: ["flask", "python", "ai-concept"],
-  imgPaths: [aiRouterImg],
-  subtitle: "AI-style assistant concept demo for Metropolia students",
-  description:
-    "A small Flask web app that simulates an AI assistant to help Metropolia students route their questions to the right service. The user writes a free-text question, and the app detects the intent, suggests the correct Metropolia service, shows useful links, and generates a polite example email in English. The core logic is a rule-based 'fake AI' function designed so it can later be replaced by a real LLM backend.",
-  githubLink: "https://github.com/Minoo-YH/metropolia-ai-service-router",
-  demoLink: "https://minoo-yh.github.io/metropolia-ai-service-router/",
-},
-{
-  projectTitle: "LuxeScents Perfume Store",
-  category: ["react", "tailwind", "frontend"],
-  imgPaths: [luxurywebImg],
-  subtitle: "Modern perfume landing page",
-  description:
-    "A modern, responsive perfume store landing page built with React and Tailwind CSS. Focused on clean layout, sections for featured products, and a smooth user experience. This project showcases my front-end skills in styling, components, and responsive design.",
-  githubLink: "https://github.com/Minoo-YH/luxescents-perfume-site",
-  demoLink: "https://minoo-yh.github.io/luxescents-perfume-site/",
-},
+    projectTitle: "Metropolia AI Service Router",
+    category: ["flask", "python", "ai-concept"],
+    imgPaths: [aiRouterImg],
+    subtitle: "AI-style assistant concept demo for Metropolia students",
+    description:
+      "A small Flask web app that simulates an AI assistant to help Metropolia students route their questions to the right service. The user writes a free-text question, and the app detects the intent, suggests the correct Metropolia service, shows useful links, and generates a polite example email in English. The core logic is a rule-based 'fake AI' function designed so it can later be replaced by a real LLM backend.",
+    githubLink: "https://github.com/Minoo-YH/metropolia-ai-service-router",
+    demoLink: "https://minoo-yh.github.io/metropolia-ai-service-router/",
+  },
+  {
+    projectTitle: "LuxeScents Perfume Store",
+    category: ["react", "tailwind", "frontend"],
+    imgPaths: [luxurywebImg],
+    subtitle: "Modern perfume landing page",
+    description:
+      "A modern, responsive perfume store landing page built with React and Tailwind CSS. Focused on clean layout, sections for featured products, and a smooth user experience. This project showcases my front-end skills in styling, components, and responsive design.",
+    githubLink: "https://github.com/Minoo-YH/luxescents-perfume-site",
+    demoLink: "https://minoo-yh.github.io/luxescents-perfume-site/",
+  },
 
+  {
+    projectTitle: "Help Connect",
+    category: ["react", "frontend", "figma", "ui/ux"],
+    imgPaths: [helpCimage],
+    subtitle: "Community help & support platform",
+    description:
+      "A university project developed at Metropolia University of Applied Sciences. I came up with the project idea, designed the Figma prototype, and built the frontend with React and Tailwind CSS.",
+    githubLink: "https://github.com/MiksuNy/web-project",
+    demoLink: "https://web-project-k172.onrender.com/",
+    figmaLink:
+      "https://www.figma.com/make/qMKm053W5kn1JNJOwQ51h0/Help-App?t=hXBCaRWimu2RI1rC-1",
+  },
 
+  {
+    projectTitle: "Latst Flight — Python Flight Game Simulation",
+    category: ["python", "mysql", "ui/ux", "figma"],
+    imgPaths: [lastflight], 
+    subtitle: "University project — Full UI/UX + Frontend contribution",
+
+    description:
+      "A university group project focused on building a flight game  simulation using Python and MySQL. I was responsible for designing the full UI/UX in Figma and implementing the frontend. The system allows users to play game  between difrent  destinations, track distance (KM), and unlock membership levels such as Silver, Gold, and Diamond. The project also includes testing and validation, story line , and database-driven logic.",
+
+    githubLink: "https://github.com/Basharski/Ohjelmisto-2_Projekti",
+
+    figmaLink:
+      "https://www.figma.com/make/7SxDNBC0Jch0x6F1WOdugf/last-flight-prototype?t=JdOdb190KCtCgLW0-20&fullscreen=1",
+  },
 ];
-
-
