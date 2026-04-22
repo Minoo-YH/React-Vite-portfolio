@@ -3,7 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  // فاصله‌ی اسکرول به‌خاطر navbar چسبان (~80px)
+
   const scrollWithOffset = useCallback((el) => {
     const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
     window.scrollTo({ top: y, behavior: "smooth" });
@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className="bg-black/80 backdrop-blur text-white px-8 md:px-16 lg:px-24 sticky top-0 z-50">
       <div className="container py-2 mx-auto flex justify-center md:justify-between items-center">
-        {/* لوگو/برند؛ اگر خواستی روی موبایل هم دیده شود، hidden md:inline را بردار */}
+        
         <Link to="/" className="text-2xl font-bold mr-auto">Minoo</Link>
 
         <div className="space-x-6">
