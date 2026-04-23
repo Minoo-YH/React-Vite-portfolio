@@ -2,13 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import AboutImg from "../assets/about.png";
 
 /* =========================
-   ProgressBar (animated on scroll)
+   ProgressBar (responsive)
 ========================= */
 const ProgressBar = ({ label, value, isVisible }) => {
   return (
     <div
-      className="grid items-center gap-3 mb-4 w-full max-w-xl mx-auto
-                    grid-cols-[10rem,1fr] sm:grid-cols-[11rem,1fr]"
+      className="
+        grid items-center gap-2 sm:gap-3 mb-4 w-full max-w-xl mx-auto
+        grid-cols-1 sm:grid-cols-[10rem,1fr] md:grid-cols-[11rem,1fr]
+      "
     >
       <span className="text-xs sm:text-sm tracking-wide text-gray-400 uppercase truncate">
         {label}
@@ -56,7 +58,6 @@ const About = () => {
   const ref = useRef();
   const [visible, setVisible] = useState(false);
 
-  // Detect scroll visibility
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -67,11 +68,10 @@ const About = () => {
       { threshold: 0.3 },
     );
 
-    observer.observe(ref.current);
+    if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
-  // counters
   const years = useCountUp(2, 800, visible);
   const projects = useCountUp(15, 1200, visible);
 
@@ -79,51 +79,48 @@ const About = () => {
     <section
       ref={ref}
       id="about"
-      className="bg-black text-white py-24 sm:py-28 px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col items-center"
+      className="bg-black text-white py-20 sm:py-24 md:py-28 px-4 sm:px-6 md:px-12 lg:px-24 flex flex-col items-center"
     >
       {/* Title */}
       <h2
-        className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-12 sm:mb-16
-                     text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-10 sm:mb-12 md:mb-16
+                   text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500"
       >
         About Me
       </h2>
 
-      <div className="flex flex-col md:flex-row items-center md:items-start md:gap-12 max-w-5xl w-full">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 max-w-5xl w-full">
         {/* Image */}
-        <div className="rounded-full p-[4px] bg-gradient-to-r from-green-400 to-blue-500 mb-8 md:mb-0">
+        <div className="rounded-full p-[4px] bg-gradient-to-r from-green-400 to-blue-500 shrink-0">
           <img
             src={AboutImg}
             alt="Developer"
-            className="rounded-full object-cover w-40 h-40 md:w-52 md:h-52
+            className="rounded-full object-cover 
+                       w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56
                        transition duration-300 hover:scale-105"
           />
         </div>
 
         {/* Text */}
         <div className="flex-1 text-center md:text-left">
-          <div className="max-w-[62ch] mx-auto md:mx-0 text-gray-300 space-y-6 text-base sm:text-lg leading-8">
+          <div className="max-w-[62ch] mx-auto md:mx-0 text-gray-300 space-y-5 sm:space-y-6 text-sm sm:text-base md:text-lg leading-7 sm:leading-8">
             <p>
               I’m a passionate full-stack web and mobile developer focused on
               building meaningful and engaging digital experiences. Alongside my
               technical skills, I have a strong interest in UI/UX design, with a
               good understanding of color theory, typography, and visual
-              hierarchy. I strive to create products that are not only
-              functional, but also visually appealing and user-friendly.
+              hierarchy.
             </p>
             <p>
-              I have experience working with modern development methodologies
-              such as Agile and Scrum, and I am comfortable using project
-              management tools like Jira and Trello. I am a quick learner who
-              adapts rapidly to new technologies and environments, and I thrive
-              in team settings with strong collaboration and flexibility. I am
-              fluent in English, able to communicate in Finnish, and Persian is
-              my native language.
+              I have experience working with Agile and Scrum, using tools like
+              Jira and Trello. I learn quickly, adapt fast, and work well in
+              teams. I am fluent in English, can communicate in Finnish, and
+              Persian is my native language.
             </p>
           </div>
 
           {/* Skills */}
-          <div className="mt-10">
+          <div className="mt-8 sm:mt-10">
             <ProgressBar label="HTML & CSS" value={100} isVisible={visible} />
             <ProgressBar label="React" value={90} isVisible={visible} />
             <ProgressBar label="Node.js" value={80} isVisible={visible} />
@@ -138,19 +135,23 @@ const About = () => {
       </div>
 
       {/* Stats */}
-      <div className="mt-16 flex gap-12 text-center">
+      <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row gap-8 sm:gap-12 text-center">
         <div>
-          <h3 className="text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
             {years}+
           </h3>
-          <p className="text-gray-400 mt-2">Years Experience</p>
+          <p className="text-gray-400 mt-2 text-sm sm:text-base">
+            Years Experience
+          </p>
         </div>
 
         <div>
-          <h3 className="text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
             {projects}+
           </h3>
-          <p className="text-gray-400 mt-2">Projects Completed</p>
+          <p className="text-gray-400 mt-2 text-sm sm:text-base">
+            Projects Completed
+          </p>
         </div>
       </div>
     </section>
