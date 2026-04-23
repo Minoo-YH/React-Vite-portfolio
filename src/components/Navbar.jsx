@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 
@@ -8,18 +8,16 @@ const Navbar = () => {
     window.scrollTo({ top: y, behavior: "smooth" });
   }, []);
 
-  const linkCls = "hover:text-gray-400 transition-colors";
+  const linkCls = "hover:text-gray-400 transition";
 
   return (
-    <nav className="w-screen bg-black/80 backdrop-blur text-white sticky top-0 z-50">
-      <div className="w-full px-8 md:px-16 lg:px-24 py-2 flex items-center justify-between">
-        {/* LOGO */}
-        <Link to="/" className="text-2xl font-bold">
+    <nav className="w-full bg-black/70 backdrop-blur text-white sticky top-0 z-50">
+      <div className="container flex items-center justify-between py-3">
+        <Link to="/" className="text-xl font-semibold">
           Minoo
         </Link>
 
-        {/* MENU */}
-        <div className="flex items-center gap-8 text-sm">
+        <div className="flex items-center gap-6 text-sm">
           <Link to="/" className={linkCls}>
             Home
           </Link>
@@ -60,12 +58,11 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* BUTTON */}
         <HashLink
           smooth
           to="/#contact"
           scroll={scrollWithOffset}
-          className="btn-primary ml-4"
+          className="btn-primary"
         >
           Contact Me
         </HashLink>
