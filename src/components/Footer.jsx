@@ -1,102 +1,217 @@
 import React, { useState } from "react";
-import { FaGithub, FaLinkedin, FaHeart } from "react-icons/fa";
-import { Link } from "react-router-dom"; // ✅ اضافه شد
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
+  FaHeart,
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const FORMSPREE = "https://formspree.io/f/xanevzbo";
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((p) => ({ ...p, [name]: value }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = e.target.elements.email.value;
     setLoading(true);
     setStatus("");
+
     try {
-      const response = await fetch("https://formspree.io/f/xanevzbo", {
+      const res = await fetch(FORMSPREE, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ email, message: "New subscriber!" }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      if (response.ok) { setStatus("Thank you for subscribing!"); e.target.reset(); }
-      else setStatus("Something went wrong. Please try again.");
-    } catch (err) {
-      console.error(err);
-      setStatus("Error submitting the form.");
-    } finally { setLoading(false); }
+
+      if (res.ok) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("Failed to send message.");
+      }
+    } catch {
+      setStatus("Error sending message.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <footer className="w-full bg-black text-white py-1">
-      <div className="container mx-auto px-5 md:px-16 lg:px-24">
-        <div className="flex flex-col md:flex-row md:space-x-12 items-center mb-4">
-          <div className="flex-1 mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold mb-2">Minoo</h3>
-            <p className="text-gray-400">
-              I’m a digital artist who loves making things that look good and feel right...
-            </p>
-          </div>
+    <>
+      {/* CONTACT */}
+      <section id="contact" className="w-full bg-black text-white py-20">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center mb-12 text-xl sm:text-2xl md:text-3xl">
+            Contact Me
+          </h2>
 
-          <div className="flex-1 w-full">
-            <form className="flex items-center justify-center" onSubmit={handleSubmit}>
-              <input
-                type="email" name="email" placeholder="Your email"
-                className="w-full p-2 rounded-l-lg bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-r-lg"
-                disabled={loading}
-              >
-                {loading ? "Subscribing..." : "Subscribe"}
-              </button>
-            </form>
-            {status && (
-              <p className={`mt-2 text-sm ${status.includes("Thank") ? "text-green-400" : "text-red-400"}`}>
-                {status}
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center md:items-start">
+
+            {/* LEFT */}
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-lg sm:text-xl md:text-2xl mb-4">
+                Let’s Talk
+              </h3>
+
+              <p className="text-gray-300 mb-6 max-w-md mx-auto md:mx-0 text-sm sm:text-base md:text-lg">
+                I’m open to new projects and always excited to bring ideas to
+                life.
               </p>
-            )}
+
+              <div className="space-y-4">
+                <div className="flex items-center justify-center md:justify-start gap-3">
+                  <FaEnvelope className="text-green-400" />
+                  <span className="text-sm sm:text-base md:text-lg break-all">
+                    minoo.yaghoubi@gmail.com
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-center md:justify-start gap-3">
+                  <FaPhone className="text-green-400" />
+                  <span className="text-sm sm:text-base md:text-lg">
+                    +358 465461799
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-center md:justify-start gap-3">
+                  <FaMapMarkerAlt className="text-green-400" />
+                  <span className="text-sm sm:text-base md:text-lg">
+                    Finland
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* FORM */}
+            <div className="flex-1 w-full max-w-lg">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Name"
+                  className="w-full p-3 sm:p-4 bg-gray-800 border border-gray-600 rounded text-sm sm:text-base md:text-lg focus:outline-none focus:border-green-400"
+                  required
+                />
+
+                <input
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  className="w-full p-3 sm:p-4 bg-gray-800 border border-gray-600 rounded text-sm sm:text-base md:text-lg focus:outline-none focus:border-green-400"
+                  required
+                />
+
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="5"
+                  placeholder="Message"
+                  className="w-full p-3 sm:p-4 bg-gray-800 border border-gray-600 rounded text-sm sm:text-base md:text-lg focus:outline-none focus:border-green-400"
+                  required
+                />
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-primary px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg w-full sm:w-auto"
+                >
+                  {loading ? "Sending..." : "Send"}
+                </button>
+              </form>
+
+              {status && (
+                <p
+                  className={`mt-4 text-sm sm:text-base md:text-lg text-center md:text-left ${
+                    status.toLowerCase().includes("success")
+                      ? "text-green-400"
+                      : "text-red-400"
+                  }`}
+                >
+                  {status}
+                </p>
+              )}
+            </div>
           </div>
         </div>
+      </section>
 
-        <div className="border-t border-gray-600 pt-4 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 flex items-center justify-center gap-1">
-            &copy; {new Date().getFullYear()} made with <FaHeart className="text-red-500" /> by Minoo
-          </p>
+      {/* FOOTER */}
+      <footer className="w-full bg-black text-white border-t border-gray-800 py-12">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="flex space-x-4 my-4 md:my-0">
-            <a
-              href="https://www.linkedin.com/in/minoo-yaghoubi-692b42182/"
-              target="_blank" rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white" aria-label="LinkedIn"
-            >
-              <FaLinkedin />
-            </a>
-            <a
-              href="https://github.com/Minoo-YH"
-              target="_blank" rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white" aria-label="GitHub"
-            >
-              <FaGithub />
-            </a>
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start mb-8">
+
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3">
+                Minoo
+              </h3>
+              <p className="text-gray-400 text-sm sm:text-base md:text-lg">
+                I create clean, modern, and meaningful digital experiences.
+              </p>
+            </div>
+
+            <div className="flex-1 w-full max-w-xl mx-auto md:mx-0">
+              <form className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="w-full p-3 sm:p-4 bg-gray-800 border border-gray-600 rounded text-sm sm:text-base md:text-lg"
+                />
+                <button className="btn-primary px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg">
+                  Subscribe
+                </button>
+              </form>
+            </div>
           </div>
 
-          {/* ✅ باز شدن در تب جدید بدون رفرش کامل */}
-          <div className="flex space-x-4">
-            <Link to="/terms" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
-              Privacy
-            </Link>
-            <Link to="/terms" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
-              Terms of Service
-            </Link>
-            
+          <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+
+            <p className="text-gray-400 text-sm sm:text-base flex items-center gap-1">
+              © {new Date().getFullYear()} made with
+              <FaHeart className="text-red-500" /> by Minoo
+            </p>
+
+            <div className="flex gap-5 text-lg">
+              <FaLinkedin className="text-gray-400 hover:text-white cursor-pointer transition" />
+              <FaGithub className="text-gray-400 hover:text-white cursor-pointer transition" />
+            </div>
+
+            <div className="flex gap-4 text-sm sm:text-base">
+              <Link to="/privacy" className="hover:text-white transition">
+                Privacy
+              </Link>
+              <Link to="/terms" className="hover:text-white transition">
+                Terms
+              </Link>
+            </div>
+
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
-
 export default Footer;
 
 
