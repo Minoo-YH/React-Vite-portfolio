@@ -64,7 +64,6 @@ const Footer = () => {
           </h2>
 
           <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center md:items-start">
-
             {/* LEFT */}
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-lg sm:text-xl md:text-2xl mb-4">
@@ -159,9 +158,7 @@ const Footer = () => {
       {/* FOOTER */}
       <footer className="w-full bg-black text-white border-t border-gray-800 py-12">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start mb-8">
-
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3">
                 Minoo
@@ -186,15 +183,27 @@ const Footer = () => {
           </div>
 
           <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-
             <p className="text-gray-400 text-sm sm:text-base flex items-center gap-1">
               © {new Date().getFullYear()} made with
               <FaHeart className="text-red-500" /> by Minoo
             </p>
 
             <div className="flex gap-5 text-lg">
-              <FaLinkedin className="text-gray-400 hover:text-white cursor-pointer transition" />
-              <FaGithub className="text-gray-400 hover:text-white cursor-pointer transition" />
+              <a
+                href="https://www.linkedin.com/in/minoo-yaghoubi-692b42182/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-gray-400 hover:text-white cursor-pointer transition" />
+              </a>
+
+              <a
+                href="https://github.com/Minoo-YH"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub className="text-gray-400 hover:text-white cursor-pointer transition" />
+              </a>
             </div>
 
             <div className="flex gap-4 text-sm sm:text-base">
@@ -205,7 +214,6 @@ const Footer = () => {
                 Terms
               </Link>
             </div>
-
           </div>
         </div>
       </footer>
@@ -213,5 +221,3 @@ const Footer = () => {
   );
 };
 export default Footer;
-
-
