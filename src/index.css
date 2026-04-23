@@ -1,52 +1,118 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* ================= TAILWIND ================= */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ================= BASE ================= */
 @layer base {
-  html, body, #root { height: 100%; }
-
-  /* ✅ سازگاری کامل: هشدار webhint رفع شد */
-  html {
-    text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
-  body { @apply bg-black text-white; }
+  html {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-  /* ✅ رابط تاریکِ مرورگرها (اسکرول‌بار/کنترل‌ها) */
-  :root { color-scheme: dark light; }
+  body {
+    @apply bg-black text-white;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  #root {
+    min-height: 100%;
+  }
+
+  /* ================= TYPOGRAPHY ================= */
+
+  h1 {
+    @apply text-4xl md:text-5xl font-semibold leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-medium;
+  }
+
+  p {
+    @apply text-base md:text-lg text-gray-300;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  input,
+  textarea,
+  button {
+    font-family: inherit;
+  }
+
+  input,
+  textarea {
+    @apply outline-none;
+  }
 }
 
-/* ✅ وقتی با HashLink می‌ری، هدینگ‌ها زیر navbar نرن */
-#about, #service, #projects, #contact { scroll-margin-top: 80px; }
+/* ================= LAYOUT ================= */
 
-/* ✅ پس‌زمینه‌ی باد/کانواس زیر همه‌چیز، ثابت و بدون تعامل */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin-inline: auto; /* 👈 مدرن‌تر از margin-left/right */
+  padding-inline: 1rem; /* 👈 مدرن‌تر */
+}
+
+/* فاصله سکشن‌ها */
+.section {
+  padding-block: 5rem; /* 👈 تمیزتر */
+}
+
+/* ================= SCROLL FIX ================= */
+
+#about,
+#service,
+#projects,
+#contact {
+  scroll-margin-top: 100px;
+}
+
+/* ================= BACKGROUND ================= */
+
 canvas {
   position: fixed;
-  inset: 0;           /* top/right/bottom/left: 0 */
-  z-index: 0;         /* زیر محتوا (نه منفی) */
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  z-index: 0;
   pointer-events: none;
 }
 
-/* ✅ مطمئن شو محتوای اصلی بالای canvas است */
-.app-shell { position: relative; z-index: 1; }
+/* ================= UTILITIES ================= */
 
-@layer components {
-  .btn-primary {
-    @apply inline-flex items-center justify-center
-    text-white font-medium
-    px-6 py-2.5
-    rounded-full
-    text-sm
-    transition-all duration-300
-    bg-gradient-to-r from-green-400 to-blue-500
-    hover:scale-105
-    active:scale-95;
-  }
+.break-anywhere {
+  word-break: break-word;
+}
 
-  .btn-primary:hover {
-    @apply from-green-500 to-blue-600;
-  }
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
 }

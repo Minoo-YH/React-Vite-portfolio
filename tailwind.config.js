@@ -1,11 +1,7 @@
-module.exports = {
-  content: [
-    './src/**/*.{html,js,jsx,ts,tsx}',  // Adjust this based on your project structure
-    './public/index.html',  // For projects using HTML templates
-  ],
+export default {
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
   },
   plugins: [],
 };
-
