@@ -92,7 +92,13 @@ a:hover {
 }
 
 button {
-  all: unset;
+  border: none;
+  background: none;
+  font: inherit;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 button:hover {
