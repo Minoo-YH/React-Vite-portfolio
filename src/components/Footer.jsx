@@ -182,7 +182,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div className="border-t border-gray-900 pt-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p className="text-gray-400 text-sm sm:text-base flex items-center gap-1">
               © {new Date().getFullYear()} made with
               <FaHeart className="text-red-500" /> by Minoo
