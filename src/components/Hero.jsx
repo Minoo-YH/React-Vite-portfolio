@@ -5,22 +5,21 @@ import WindBackground from "./WindBackground";
 
 const Hero = () => {
   return (
-    <header className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-black text-white ">
+    <header className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black text-white">
       {/* Background */}
       <WindBackground />
 
       {/* Content */}
-      <div className="container relative z-50 text-center px-4">
+      <div className="relative z-50 w-full max-w-5xl mx-auto text-center px-6">
         {/* Avatar */}
-        <div className="relative flex justify-center mb-6">
+        <div className="relative flex justify-center mb-10">
           {/* Glow */}
           <div
             className="absolute 
-            w-[280px] h-[280px] 
-            sm:w-[340px] sm:h-[340px] 
+            w-[300px] h-[300px] 
             md:w-[420px] md:h-[420px]
             bg-gradient-to-r from-green-400 to-blue-500 
-            blur-[120px] opacity-30 rounded-full"
+            blur-[140px] opacity-30 rounded-full"
           />
 
           {/* Image */}
@@ -28,42 +27,42 @@ const Hero = () => {
             src={HeroImg}
             alt="Minoo Yaghoubi"
             className="relative 
-              w-44 h-44 
-              sm:w-56 sm:h-56 
+              w-48 h-48 
               md:w-72 md:h-72 
-              lg:w-[320px] lg:h-[320px] 
-              xl:w-[360px] xl:h-[360px] 
+              lg:w-[340px] lg:h-[340px] 
               rounded-full object-cover object-top 
               border border-white/10 
-              shadow-[0_0_40px_rgba(34,197,94,0.4)]
+              shadow-[0_0_50px_rgba(34,197,94,0.5)]
               transition duration-300 hover:scale-105"
           />
         </div>
 
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl mx-auto">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight max-w-4xl mx-auto">
           I'm{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+          <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
             Minoo Yaghoubi
           </span>
-          , Full-stack Web & Mobile Developer
+          <br />
+          Full-stack Web & Mobile Developer
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-10 text-base md:text-xl text-white/70 max-w-xl mx-auto leading-relaxed">
+        <p className="mt-8 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
           Crafting modern, scalable and immersive digital experiences for web &
           mobile.
         </p>
 
         {/* Buttons */}
-        <div className="mt-6 flex justify-center gap-4 flex-wrap">
+        <div className="mt-10 flex justify-center gap-6 flex-wrap">
           <HashLink
             smooth
             to="/#contact"
-            className="px-6 py-2 rounded-full 
+            className="px-8 py-3 rounded-full 
             bg-gradient-to-r from-green-400 to-blue-500 
-            text-black font-medium 
-            hover:scale-105 transition"
+            text-black font-semibold 
+            transition duration-300 hover:scale-110 
+            hover:shadow-[0_0_30px_#22c55e]"
           >
             Contact Me
           </HashLink>
@@ -72,10 +71,10 @@ const Hero = () => {
             href={ResumeFile}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2 rounded-full 
-  bg-gradient-to-r from-green-400 to-blue-500 
-  text-black font-medium 
-  hover:scale-105 transition"
+            className="px-8 py-3 rounded-full 
+            border border-white/20 
+            text-white font-semibold 
+            hover:bg-white/10 transition duration-300"
           >
             Resume
           </a>
