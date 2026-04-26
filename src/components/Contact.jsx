@@ -39,7 +39,7 @@ const Contact = () => {
       } else {
         setStatus("Failed to send message.");
       }
-    } catch (err) {
+    } catch {
       setStatus("Error sending message.");
     } finally {
       setLoading(false);
@@ -47,61 +47,60 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="bg-black text-white py-20 sm:py-24 md:py-28 px-4 sm:px-6 md:px-12 lg:px-24"
-    >
-      {/* Title */}
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 sm:mb-14">
+    <section id="contact" className="bg-black text-white py-32 px-6">
+      {/* TITLE */}
+      <h2 className="text-5xl md:text-6xl font-bold text-center mb-24 tracking-tight">
         Contact Me
       </h2>
 
-      {/* Container */}
-      <div className="flex flex-col md:flex-row gap-10 md:gap-12 max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-20">
         {/* LEFT */}
-        <div className="flex-1 text-center md:text-left">
-          <h3 className="text-xl sm:text-2xl mb-4">Let’s Talk</h3>
+        <div className="flex-1 space-y-10 text-center md:text-left">
+          <h3 className="text-3xl md:text-4xl font-semibold">Let’s Talk 👋</h3>
 
-          <p className="text-gray-300 mb-6 leading-relaxed max-w-md mx-auto md:mx-0 text-sm sm:text-base">
-            I’m open to new projects and always excited to bring ideas to life.
-            Let’s connect and build something great together.
+          <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-lg mx-auto md:mx-0">
+            I’m open to new opportunities, freelance projects, and creative
+            collaborations. Let’s build something meaningful together.
           </p>
 
-          <div className="space-y-4 max-w-md mx-auto md:mx-0">
-            <div className="flex items-center justify-center md:justify-start gap-3">
-              <FaEnvelope className="text-green-400 shrink-0" />
+          <div className="space-y-6 text-lg">
+            <div className="flex items-center justify-center md:justify-start gap-4">
+              <FaEnvelope className="text-green-400 text-xl" />
               <a
                 href="mailto:minoo.yaghoubi@gmail.com"
-                className="hover:underline break-all text-sm sm:text-base"
+                className="hover:text-green-400 transition break-all"
               >
                 minoo.yaghoubi@gmail.com
               </a>
             </div>
 
-            <div className="flex items-center justify-center md:justify-start gap-3">
-              <FaPhone className="text-green-400 shrink-0" />
-              <span className="text-sm sm:text-base">+358 465461799</span>
+            <div className="flex items-center justify-center md:justify-start gap-4">
+              <FaPhone className="text-green-400 text-xl" />
+              <span>+358 465461799</span>
             </div>
 
-            <div className="flex items-center justify-center md:justify-start gap-3">
-              <FaMapMarkerAlt className="text-green-400 shrink-0" />
-              <span className="text-sm sm:text-base">Finland</span>
+            <div className="flex items-center justify-center md:justify-start gap-4">
+              <FaMapMarkerAlt className="text-green-400 text-xl" />
+              <span>Finland</span>
             </div>
           </div>
         </div>
 
         {/* RIGHT */}
-        <div className="flex-1 w-full max-w-md mx-auto md:mx-0">
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+        <div className="flex-1 max-w-xl mx-auto md:mx-0">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-7 bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-10"
+          >
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Name"
+              placeholder="Your Name"
               required
-              className="w-full p-3 rounded bg-gray-800 border border-gray-600 
-                         focus:outline-none focus:border-green-400 text-sm sm:text-base"
+              className="w-full p-4 text-lg rounded-lg bg-black/60 border border-white/10 
+              focus:border-green-400 focus:ring-2 focus:ring-green-400/20 outline-none"
             />
 
             <input
@@ -109,10 +108,10 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Email"
+              placeholder="Your Email"
               required
-              className="w-full p-3 rounded bg-gray-800 border border-gray-600 
-                         focus:outline-none focus:border-green-400 text-sm sm:text-base"
+              className="w-full p-4 text-lg rounded-lg bg-black/60 border border-white/10 
+              focus:border-green-400 focus:ring-2 focus:ring-green-400/20 outline-none"
             />
 
             <textarea
@@ -120,26 +119,33 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               rows="5"
-              placeholder="Message"
+              placeholder="Your Message..."
               required
-              className="w-full p-3 rounded bg-gray-800 border border-gray-600 
-                         focus:outline-none focus:border-green-400 text-sm sm:text-base"
+              className="w-full p-4 text-lg rounded-lg bg-black/60 border border-white/10 
+              focus:border-green-400 focus:ring-2 focus:ring-green-400/20 outline-none resize-none"
             />
 
+            {/* 🔥 BUTTON */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full sm:w-auto bg-gradient-to-r from-green-400 to-blue-500 
-                         px-8 py-3 rounded-full text-sm sm:text-base 
-                         hover:scale-105 transition"
+              className="w-full bg-gradient-to-r from-green-400 to-blue-500 
+              text-black font-semibold text-lg py-4 rounded-full relative overflow-hidden
+              transition duration-300 hover:scale-105
+              hover:shadow-[0_0_40px_#22c55e] active:scale-95"
             >
-              {loading ? "Sending..." : "Send"}
+              <span className="relative z-10">
+                {loading ? "Sending..." : "Send Message"}
+              </span>
+
+              <span className="absolute inset-0 opacity-0 hover:opacity-20 bg-white transition"></span>
             </button>
           </form>
 
+          {/* STATUS */}
           {status && (
             <p
-              className={`mt-4 text-sm sm:text-base text-center md:text-left ${
+              className={`mt-6 text-lg text-center md:text-left ${
                 status.includes("success") ? "text-green-400" : "text-red-400"
               }`}
             >
