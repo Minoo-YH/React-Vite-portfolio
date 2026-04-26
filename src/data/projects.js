@@ -13,6 +13,10 @@ import aiRouterImg from "../assets/AI.png";
 import luxurywebImg from "../assets/luxuryweb.png";
 import helpCimage from "../assets/helpC.png";
 import lastflight from "../assets/lastflight.png";
+import webImg from "../assets/web.png";
+import javaImg from "../assets/java.png";
+import javaprojectImg from "../assets/evcharg.png";
+import appImg from "../assets/app.png";
 
 export const myProjects = [
   {
@@ -22,6 +26,14 @@ export const myProjects = [
     subtitle: "Web app for managing data",
     description: "School project",
     githubLink: "https://github.com/Abdullah22-22/crud",
+  },
+   {
+    projectTitle: "Metropolia web development course  ",
+    category: ["react", "node", "express", "mongodb"],
+    imgPaths: [webImg],
+    subtitle: "Full-stack web development course",
+    description: "School project",
+    githubLink: "https://github.com/Minoo-YH/Metropolia-W-D-C-Tasks",
   },
   {
     projectTitle: "Employee management",
@@ -35,9 +47,9 @@ export const myProjects = [
     projectTitle: "Python",
     category: ["python"],
     imgPaths: [pyImg],
-    subtitle: "Some python exercises",
-    description: "School project with python",
-    githubLink: "https://github.com/Minoo-YH/Metropolia-python3",
+    subtitle:"Python full course with different projects",
+    description: "Metropolia university full task with python",
+    githubLink: "https://github.com/Minoo-YH/PythonOhjeimisto2",
   },
   {
     projectTitle: "Full-stack website",
@@ -101,7 +113,7 @@ export const myProjects = [
     subtitle: "Hands-on workshop",
     description:
       "We attended a React 19 workshop at Future Front Development and applied the latest updates in a small demo project. It was a great chance to learn new patterns/APIs and refresh best practices, then integrate those learnings back into our codebase.",
-    githubLink: null,
+    githubLink: "https://github.com/Minoo-YH/React-19-workshop",
     isWorkshop: true,
   },
   {
@@ -137,6 +149,34 @@ export const myProjects = [
     figmaLink:
       "https://www.figma.com/make/qMKm053W5kn1JNJOwQ51h0/Help-App?t=hXBCaRWimu2RI1rC-1",
   },
+   {
+    projectTitle: "Metropolia Java courses",
+    category: ["java", "javafix", "intellij"],
+    imgPaths: [javaImg],
+    subtitle: "University task — Full stack contribution",
+    description:
+      "A university full Java course which focuse deply on java basics, javafx, and intellij. I completed all the tasks and using lastest tools and techniques.",
+    githubLink: "https://github.com/Minoo-YH/java-course",
+  },
+    {
+    projectTitle: "Metropolia Java project",
+    category: ["java", "javafix", "intellij"],
+    imgPaths: [javaprojectImg],
+    subtitle: "University full stack java project",
+    description:
+      "A university full Java project to make simulation EV charge station",
+    githubLink: "https://github.com/Marakusa/java-oop-project",
+  },
+    {
+    projectTitle: "My own app",
+    category: ["ReactNative", "TypeScript", "expo"],
+    imgPaths: [appImg],
+    subtitle: "I always has a dream to make my own app, so I started learning React Native and TypeScript to make it happen. I am currently working on a project that will be released soon. Stay tuned for updates!",
+    description:
+      "A usufull app for helttech industry, I am currently working on it and it will be released soon. Stay tuned for updates!",
+    githubLink: "https://github.com/ProjectHelpConnect",
+  },
+
 
   {
     projectTitle: "Latst Flight — Python Flight Game Simulation",

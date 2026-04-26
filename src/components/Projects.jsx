@@ -2,63 +2,76 @@ import { myProjects } from "../data/projects";
 
 export default function Projects() {
   return (
-    <section id="projects" className="bg-black py-20">
-      <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
-        {/* Title */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-white">
+    <section id="projects" className="py-32 relative">
+      {/* background glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-400/5 to-blue-500/5 pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        {/* TITLE */}
+        <h2 className="text-center text-5xl md:text-6xl font-extrabold mb-28 cosmic-text">
           Projects
         </h2>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
           {myProjects.map((p) => {
             const img = p.imgPaths?.[0];
 
             return (
               <div
                 key={p.projectTitle}
-                className="bg-gray-800 rounded-lg overflow-hidden 
-                hover:shadow-xl hover:shadow-green-500/10 
-                transform transition duration-300 hover:scale-105"
+                className="group relative flex flex-col rounded-3xl overflow-hidden
+                bg-white/[0.03] backdrop-blur-xl border border-white/10
+                transition duration-500 hover:-translate-y-6
+                hover:shadow-[0_0_60px_rgba(34,197,94,0.2)]"
               >
-                {/* Image */}
+                {/* glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
+                bg-gradient-to-br from-green-400/10 via-blue-500/10 to-transparent blur-xl"
+                ></div>
+
+                {/* IMAGE */}
                 {img && (
-                  <div className="overflow-hidden">
+                  <div className="relative overflow-hidden">
                     <img
                       src={img}
                       alt={p.projectTitle}
-                      className="w-full h-48 object-cover transition duration-300 hover:scale-110"
+                      className="w-full h-72 object-cover transition duration-700 group-hover:scale-110"
                       loading="lazy"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   </div>
                 )}
 
-                {/* Content */}
-                <div className="p-4">
-                  {/* Title */}
-                  <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+                {/* CONTENT */}
+                <div className="relative z-10 flex flex-col flex-grow p-8">
+                  {/* TITLE */}
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2 cosmic-text">
                     {p.projectTitle}
                   </h3>
 
-                  {/* Subtitle */}
+                  {/* SUBTITLE */}
                   {p.subtitle && (
-                    <p className="text-gray-400 text-sm">{p.subtitle}</p>
+                    <p className="text-gray-400 text-sm mb-4">{p.subtitle}</p>
                   )}
 
-                  {/* Description */}
+                  {/* DESCRIPTION */}
                   {p.description && (
-                    <p className="text-gray-300 mt-2 text-sm leading-relaxed">
+                    <p className="text-gray-200 text-base md:text-lg leading-relaxed mb-6">
                       {p.description}
                     </p>
                   )}
 
-                  {/* Categories */}
+                  {/* TAGS */}
                   {p.category?.length > 0 && (
-                    <div className="mt-3 flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {p.category.map((c) => (
                         <span
                           key={c}
-                          className="text-xs px-2 py-1 rounded-full bg-gray-700 text-gray-300"
+                          className="px-3 py-1 text-xs rounded-full 
+                          bg-white/5 text-gray-300 border border-white/10
+                          hover:border-green-400/40 transition"
                         >
                           {c}
                         </span>
@@ -66,40 +79,52 @@ export default function Projects() {
                     </div>
                   )}
 
-                  {/* Links FIXED ✅ */}
-                  <div className="flex flex-wrap gap-4 mt-4 text-sm">
-                    {p.githubLink && (
-                      <a
-                        href={p.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-green-400 hover:text-blue-500 transition"
-                      >
-                        GitHub →
-                      </a>
-                    )}
+                  {/* 🔥 BUTTONS (همه یک تم) */}
+                  <div className="mt-auto grid grid-cols-3 gap-3 pt-6 border-t border-white/10">
+                    {/* GitHub */}
+                    <a
+                      href={p.githubLink || "#"}
+                      target={p.githubLink ? "_blank" : "_self"}
+                      rel="noopener noreferrer"
+                      className={`py-3 rounded-xl text-sm font-semibold text-center transition
+                      ${
+                        p.githubLink
+                          ? "bg-gradient-to-r from-green-400 to-blue-500 text-black hover:scale-105 hover:shadow-[0_0_25px_#22c55e]"
+                          : "bg-gray-700/40 text-gray-500 pointer-events-none"
+                      }`}
+                    >
+                      GitHub
+                    </a>
 
-                    {p.demoLink && (
-                      <a
-                        href={p.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-yellow-400 hover:text-blue-500 transition"
-                      >
-                        Live →
-                      </a>
-                    )}
+                    {/* Live */}
+                    <a
+                      href={p.demoLink || "#"}
+                      target={p.demoLink ? "_blank" : "_self"}
+                      rel="noopener noreferrer"
+                      className={`py-3 rounded-xl text-sm font-semibold text-center transition
+                      ${
+                        p.demoLink
+                          ? "bg-gradient-to-r from-green-400 to-blue-500 text-black hover:scale-105 hover:shadow-[0_0_25px_#3b82f6]"
+                          : "bg-gray-700/40 text-gray-500 pointer-events-none"
+                      }`}
+                    >
+                      Live
+                    </a>
 
-                    {p.figmaLink && (
-                      <a
-                        href={p.figmaLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-pink-400 hover:text-blue-500 transition"
-                      >
-                        Figma →
-                      </a>
-                    )}
+                    {/* Figma */}
+                    <a
+                      href={p.figmaLink || "#"}
+                      target={p.figmaLink ? "_blank" : "_self"}
+                      rel="noopener noreferrer"
+                      className={`py-3 rounded-xl text-sm font-semibold text-center transition
+                      ${
+                        p.figmaLink
+                          ? "bg-gradient-to-r from-green-400 to-blue-500 text-black hover:scale-105 hover:shadow-[0_0_25px_#22c55e]"
+                          : "bg-gray-700/40 text-gray-500 pointer-events-none"
+                      }`}
+                    >
+                      Figma
+                    </a>
                   </div>
                 </div>
               </div>
