@@ -18,7 +18,7 @@ const Hero = () => {
 
         {/* TITLE */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl">
-          I'm{" "}
+         I’m
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
             Minoo Yaghoubi
           </span>
