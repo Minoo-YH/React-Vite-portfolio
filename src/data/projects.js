@@ -1,4 +1,4 @@
-import crudImg from "../assets/crud.png";
+import crudImg from "../assets/add.png";
 import empImg from "../assets/2.png";
 import pyImg from "../assets/python.png";
 import travelImg from "../assets/travel.png";
@@ -17,17 +17,22 @@ import webImg from "../assets/web.png";
 import javaImg from "../assets/java.png";
 import javaprojectImg from "../assets/evcharg.png";
 import appImg from "../assets/app.png";
+import petImg from "../assets/petv.png";
+import currencyImg from "../assets/4.png";
+import junitImg from "../assets/junit.png";
 
 export const myProjects = [
   {
     projectTitle: "CRUD",
-    category: ["react", "node"],
+    category: ["react", "node", "express", "vite"],
     imgPaths: [crudImg],
-    subtitle: "Web app for managing data",
-    description: "School project",
-    githubLink: "https://github.com/Abdullah22-22/crud",
+    subtitle: "React + Node CRUD app with GitHub Pages deployment",
+    description:
+      "A full-stack CRUD application built with React, Node.js, and Express. Users can add, edit, and manage products along with supplier information. The project demonstrates REST API integration, state management, and deployment using GitHub Pages.",
+    githubLink: "https://github.com/Minoo-YH/Crud",
+    demoLink: "https://minoo-yh.github.io/Crud/",
   },
-   {
+  {
     projectTitle: "Metropolia web development course  ",
     category: ["react", "node", "express", "mongodb"],
     imgPaths: [webImg],
@@ -47,7 +52,7 @@ export const myProjects = [
     projectTitle: "Python",
     category: ["python"],
     imgPaths: [pyImg],
-    subtitle:"Python full course with different projects",
+    subtitle: "Python full course with different projects",
     description: "Metropolia university full task with python",
     githubLink: "https://github.com/Minoo-YH/PythonOhjeimisto2",
   },
@@ -149,7 +154,7 @@ export const myProjects = [
     figmaLink:
       "https://www.figma.com/make/qMKm053W5kn1JNJOwQ51h0/Help-App?t=hXBCaRWimu2RI1rC-1",
   },
-   {
+  {
     projectTitle: "Metropolia Java courses",
     category: ["java", "javafix", "intellij"],
     imgPaths: [javaImg],
@@ -158,7 +163,20 @@ export const myProjects = [
       "A university full Java course which focuse deply on java basics, javafx, and intellij. I completed all the tasks and using lastest tools and techniques.",
     githubLink: "https://github.com/Minoo-YH/java-course",
   },
-    {
+  {
+    projectTitle: "JUnit Testing & Maven Setup",
+    category: ["java", "junit5", "maven", "testing"],
+    imgPaths: [junitImg],
+
+    subtitle: "Java unit testing project with Maven and JUnit 5",
+
+    description:
+      "A university Java project focused on software testing, JUnit 5, Maven project structure, and clean development workflow. The project includes a fully tested Pen class and a StringManipulator utility class with comprehensive unit tests. Implemented using Maven, IntelliJ IDEA, Git, GitHub branching, and professional documentation practices.",
+
+    githubLink:
+      "https://github.com/Minoo-YH/java-course/tree/junit-testing-assignment",
+  },
+  {
     projectTitle: "Metropolia Java project",
     category: ["java", "javafix", "intellij"],
     imgPaths: [javaprojectImg],
@@ -167,21 +185,21 @@ export const myProjects = [
       "A university full Java project to make simulation EV charge station",
     githubLink: "https://github.com/Marakusa/java-oop-project",
   },
-    {
+  {
     projectTitle: "My own app",
     category: ["ReactNative", "TypeScript", "expo"],
     imgPaths: [appImg],
-    subtitle: "I always has a dream to make my own app, so I started learning React Native and TypeScript to make it happen. I am currently working on a project that will be released soon. Stay tuned for updates!",
+    subtitle:
+      "I always has a dream to make my own app, so I started learning React Native and TypeScript to make it happen. I am currently working on a project that will be released soon. Stay tuned for updates!",
     description:
       "A usufull app for helttech industry, I am currently working on it and it will be released soon. Stay tuned for updates!",
     githubLink: "https://github.com/ProjectHelpConnect",
   },
 
-
   {
     projectTitle: "Latst Flight — Python Flight Game Simulation",
     category: ["python", "mysql", "ui/ux", "figma"],
-    imgPaths: [lastflight], 
+    imgPaths: [lastflight],
     subtitle: "University project — Full UI/UX + Frontend contribution",
 
     description:
@@ -191,5 +209,46 @@ export const myProjects = [
 
     figmaLink:
       "https://www.figma.com/make/7SxDNBC0Jch0x6F1WOdugf/last-flight-prototype?t=JdOdb190KCtCgLW0-20&fullscreen=1",
+  },
+
+  {
+    projectTitle: "🐾 Virtual Pet (JavaFX)",
+    category: ["java", "javafx", "mvc", "animation"],
+    imgPaths: [petImg], // or add a separate image like virtualPetImg
+    subtitle: "Interactive JavaFX virtual pet simulation",
+    description:
+      "A simple interactive JavaFX application where a virtual pet follows the user's mouse cursor on a canvas. The pet moves smoothly with dynamic speed, stops when reaching the cursor, and includes bounce animations for a more natural feel. Built using MVC architecture with JavaFX Canvas, AnimationTimer, and mouse event handling.",
+    githubLink:
+      "https://github.com/Minoo-YH/java-course/tree/feature/virtual-pet",
+  },
+  {
+    projectTitle: "Simple Dictionary (JavaFX)",
+    category: ["java", "javafx", "mvc", "maven"],
+    imgPaths: [javaImg],
+    subtitle: "Desktop dictionary application with JavaFX",
+    description:
+      "A simple desktop dictionary application built with JavaFX and Maven. Users can search for words and meanings, as well as add new entries to the dictionary. The project was created to practice JavaFX UI development, MVC architecture, and Maven project structure.",
+    githubLink:
+      "https://github.com/Minoo-YH/java-course/tree/dictionary-project",
+  },
+  {
+    projectTitle: "Currency Converter (JavaFX + MariaDB)",
+    category: ["java", "javafx", "jdbc", "mariadb", "mvc"],
+    imgPaths: [currencyImg],
+    subtitle: "Desktop currency converter with database integration",
+    description:
+      "A simple desktop currency converter built with JavaFX that retrieves exchange rates from a MariaDB database using JDBC. The application supports converting between multiple currencies, uses a clean MVC + DAO architecture, and includes database connection error handling.",
+    githubLink:
+      "https://github.com/Minoo-YH/java-course/tree/feature/jdbc-integration",
+  },
+  {
+    projectTitle: "Currency Converter JPA",
+    category: ["java", "javafx", "hibernate", "jpa", "mariadb"],
+    imgPaths: [currencyImg],
+    subtitle: "Desktop currency converter with Hibernate ORM",
+    description:
+      "A desktop currency converter application built with JavaFX, Hibernate ORM, JPA, and MariaDB. The project demonstrates object-relational mapping, entity relationships, DAO architecture, automatic schema generation, and transaction persistence using Hibernate. Currency exchange transactions are stored in a relational database with foreign key associations.",
+    githubLink:
+      "https://github.com/Minoo-YH/java-course/tree/feature/jpa-transactions",
   },
 ];
