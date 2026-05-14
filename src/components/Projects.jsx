@@ -37,7 +37,7 @@ export default function Projects() {
                     <img
                       src={img}
                       alt={p.projectTitle}
-                      className="w-full h-52 object-cover transition duration-700 group-hover:scale-105"
+                      className="w-full h-44 object-cover transition duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -47,25 +47,25 @@ export default function Projects() {
                 {/* CONTENT */}
                 <div className="relative z-10 flex flex-col flex-grow p-5">
                   {/* TITLE */}
-                  <h3 className="text-xl md:text-2xl font-bold mb-2 cosmic-text">
+                  <h3 className="text-xl md:text-2xl font-bold mb-1 cosmic-text">
                     {p.projectTitle}
                   </h3>
 
                   {/* SUBTITLE */}
                   {p.subtitle && (
-                    <p className="text-gray-400 text-xs mb-3">{p.subtitle}</p>
+                    <p className="text-gray-400 text-xs mb-2">{p.subtitle}</p>
                   )}
 
                   {/* DESCRIPTION */}
                   {p.description && (
-                    <p className="text-gray-200 text-sm md:text-base leading-relaxed mb-5">
+                    <p className="text-gray-200 text-sm leading-relaxed mb-4 line-clamp-4">
                       {p.description}
                     </p>
                   )}
 
                   {/* TAGS */}
                   {p.category?.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-5">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {p.category.map((c) => (
                         <span
                           key={c}
@@ -80,7 +80,7 @@ export default function Projects() {
                   )}
 
                   {/* BUTTONS */}
-                  <div className="mt-auto grid grid-cols-3 gap-2 pt-5 border-t border-white/10">
+                  <div className="mt-auto grid grid-cols-3 gap-2 pt-4 border-t border-white/10">
                     {/* GitHub */}
                     <a
                       href={p.githubLink || "#"}
