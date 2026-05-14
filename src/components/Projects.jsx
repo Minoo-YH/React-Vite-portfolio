@@ -8,12 +8,12 @@ export default function Projects() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         {/* TITLE */}
-        <h2 className="text-center text-5xl md:text-6xl font-extrabold mb-28 cosmic-text">
+        <h2 className="text-center text-5xl md:text-6xl font-extrabold mb-20 cosmic-text">
           Projects
         </h2>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {myProjects.map((p) => {
             const img = p.imgPaths?.[0];
 
@@ -22,13 +22,13 @@ export default function Projects() {
                 key={p.projectTitle}
                 className="group relative flex flex-col rounded-3xl overflow-hidden
                 bg-white/[0.03] backdrop-blur-xl border border-white/10
-                transition duration-500 hover:-translate-y-6
-                hover:shadow-[0_0_60px_rgba(34,197,94,0.2)]"
+                transition duration-500 hover:-translate-y-3
+                hover:shadow-[0_0_40px_rgba(34,197,94,0.15)]"
               >
                 {/* glow */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
-                bg-gradient-to-br from-green-400/10 via-blue-500/10 to-transparent blur-xl"
+                  bg-gradient-to-br from-green-400/10 via-blue-500/10 to-transparent blur-xl"
                 ></div>
 
                 {/* IMAGE */}
@@ -37,7 +37,7 @@ export default function Projects() {
                     <img
                       src={img}
                       alt={p.projectTitle}
-                      className="w-full h-72 object-cover transition duration-700 group-hover:scale-110"
+                      className="w-full h-52 object-cover transition duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -45,27 +45,27 @@ export default function Projects() {
                 )}
 
                 {/* CONTENT */}
-                <div className="relative z-10 flex flex-col flex-grow p-8">
+                <div className="relative z-10 flex flex-col flex-grow p-5">
                   {/* TITLE */}
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2 cosmic-text">
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 cosmic-text">
                     {p.projectTitle}
                   </h3>
 
                   {/* SUBTITLE */}
                   {p.subtitle && (
-                    <p className="text-gray-400 text-sm mb-4">{p.subtitle}</p>
+                    <p className="text-gray-400 text-xs mb-3">{p.subtitle}</p>
                   )}
 
                   {/* DESCRIPTION */}
                   {p.description && (
-                    <p className="text-gray-200 text-base md:text-lg leading-relaxed mb-6">
+                    <p className="text-gray-200 text-sm md:text-base leading-relaxed mb-5">
                       {p.description}
                     </p>
                   )}
 
                   {/* TAGS */}
                   {p.category?.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-5">
                       {p.category.map((c) => (
                         <span
                           key={c}
@@ -79,17 +79,17 @@ export default function Projects() {
                     </div>
                   )}
 
-                  {/* 🔥 BUTTONS (همه یک تم) */}
-                  <div className="mt-auto grid grid-cols-3 gap-3 pt-6 border-t border-white/10">
+                  {/* BUTTONS */}
+                  <div className="mt-auto grid grid-cols-3 gap-2 pt-5 border-t border-white/10">
                     {/* GitHub */}
                     <a
                       href={p.githubLink || "#"}
                       target={p.githubLink ? "_blank" : "_self"}
                       rel="noopener noreferrer"
-                      className={`py-3 rounded-xl text-sm font-semibold text-center transition
+                      className={`py-2 rounded-xl text-xs font-semibold text-center transition
                       ${
                         p.githubLink
-                          ? "bg-gradient-to-r from-green-400 to-blue-500 text-black hover:scale-105 hover:shadow-[0_0_25px_#22c55e]"
+                          ? "bg-gradient-to-r from-green-400 to-blue-500 text-black hover:scale-105 hover:shadow-[0_0_20px_#22c55e]"
                           : "bg-gray-700/40 text-gray-500 pointer-events-none"
                       }`}
                     >
@@ -101,10 +101,10 @@ export default function Projects() {
                       href={p.demoLink || "#"}
                       target={p.demoLink ? "_blank" : "_self"}
                       rel="noopener noreferrer"
-                      className={`py-3 rounded-xl text-sm font-semibold text-center transition
+                      className={`py-2 rounded-xl text-xs font-semibold text-center transition
                       ${
                         p.demoLink
-                          ? "bg-gradient-to-r from-green-400 to-blue-500 text-black hover:scale-105 hover:shadow-[0_0_25px_#3b82f6]"
+                          ? "bg-gradient-to-r from-green-400 to-blue-500 text-black hover:scale-105 hover:shadow-[0_0_20px_#3b82f6]"
                           : "bg-gray-700/40 text-gray-500 pointer-events-none"
                       }`}
                     >
@@ -116,10 +116,10 @@ export default function Projects() {
                       href={p.figmaLink || "#"}
                       target={p.figmaLink ? "_blank" : "_self"}
                       rel="noopener noreferrer"
-                      className={`py-3 rounded-xl text-sm font-semibold text-center transition
+                      className={`py-2 rounded-xl text-xs font-semibold text-center transition
                       ${
                         p.figmaLink
-                          ? "bg-gradient-to-r from-green-400 to-blue-500 text-black hover:scale-105 hover:shadow-[0_0_25px_#22c55e]"
+                          ? "bg-gradient-to-r from-green-400 to-blue-500 text-black hover:scale-105 hover:shadow-[0_0_20px_#22c55e]"
                           : "bg-gray-700/40 text-gray-500 pointer-events-none"
                       }`}
                     >
