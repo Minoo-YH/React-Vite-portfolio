@@ -20,6 +20,8 @@ import appImg from "../assets/app.png";
 import petImg from "../assets/petv.png";
 import currencyImg from "../assets/4.png";
 import junitImg from "../assets/junit.png";
+import jcurrencyImg from "../assets/currency.png";
+import lambdaImg from "../assets/t1.png";
 
 export const myProjects = [
   {
@@ -186,6 +188,18 @@ export const myProjects = [
     githubLink: "https://github.com/Marakusa/java-oop-project",
   },
   {
+    projectTitle: "JPA Currency Converter",
+    category: ["java", "javafx", "hibernate", "jpa", "mariadb"],
+    imgPaths: [jcurrencyImg],
+    subtitle: "Desktop currency manager with JavaFX and Hibernate ORM",
+
+    description:
+      "A desktop currency converter and management application built with JavaFX, Hibernate ORM (JPA), and MariaDB. The application allows users to retrieve currencies from a relational database and dynamically add new currencies through a JavaFX graphical interface. The project follows DAO architecture and demonstrates object-relational mapping, persistence handling, database transactions, and multi-window JavaFX development.",
+
+    githubLink:
+      "https://github.com/Minoo-YH/java-course/tree/feature/jpa-currency-converter",
+  },
+  {
     projectTitle: "My own app",
     category: ["ReactNative", "TypeScript", "expo"],
     imgPaths: [appImg],
@@ -199,7 +213,7 @@ export const myProjects = [
   {
     projectTitle: "Latst Flight — Python Flight Game Simulation",
     category: ["python", "mysql", "ui/ux", "figma"],
-    imgPaths: [lastflight],
+    imgPaths: [lastflight], 
     subtitle: "University project — Full UI/UX + Frontend contribution",
 
     description:
@@ -251,4 +265,17 @@ export const myProjects = [
     githubLink:
       "https://github.com/Minoo-YH/java-course/tree/feature/jpa-transactions",
   },
+  {
+  projectTitle: "Lambda Exercises in Java",
+  category: ["java", "lambda", "functional-programming", "maven"],
+  imgPaths: [lambdaImg],
+
+  subtitle: "Java lambda expressions and collection operations",
+
+  description:
+    "A practical Java project focused on learning Lambda Expressions, functional interfaces, and collection manipulation without using the Stream API. The project includes sorting and filtering custom objects with Comparator, collection updates using replaceAll(), filtering with removeIf(), and functional-style operations using Java lambdas. Built with Java 17 and Maven as part of university functional programming exercises.",
+
+  githubLink:
+    "https://github.com/Minoo-YH/java-course/tree/feature/lambda-assignment",
+},
 ];
