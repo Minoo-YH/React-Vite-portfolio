@@ -22,6 +22,7 @@ import currencyImg from "../assets/4.png";
 import junitImg from "../assets/junit.png";
 import jcurrencyImg from "../assets/currency.png";
 import lambdaImg from "../assets/t1.png";
+import tddImg from "../assets/ttd2.png";
 
 export const myProjects = [
   {
@@ -213,7 +214,7 @@ export const myProjects = [
   {
     projectTitle: "Latst Flight — Python Flight Game Simulation",
     category: ["python", "mysql", "ui/ux", "figma"],
-    imgPaths: [lastflight], 
+    imgPaths: [lastflight],
     subtitle: "University project — Full UI/UX + Frontend contribution",
 
     description:
@@ -266,16 +267,31 @@ export const myProjects = [
       "https://github.com/Minoo-YH/java-course/tree/feature/jpa-transactions",
   },
   {
-  projectTitle: "Lambda Exercises in Java",
-  category: ["java", "lambda", "functional-programming", "maven"],
-  imgPaths: [lambdaImg],
+    projectTitle: "Lambda Exercises in Java",
+    category: ["java", "lambda", "functional-programming", "maven"],
+    imgPaths: [lambdaImg],
 
-  subtitle: "Java lambda expressions and collection operations",
+    subtitle: "Java lambda expressions and collection operations",
 
-  description:
-    "A practical Java project focused on learning Lambda Expressions, functional interfaces, and collection manipulation without using the Stream API. The project includes sorting and filtering custom objects with Comparator, collection updates using replaceAll(), filtering with removeIf(), and functional-style operations using Java lambdas. Built with Java 17 and Maven as part of university functional programming exercises.",
+    description:
+      "A practical Java project focused on learning Lambda Expressions, functional interfaces, and collection manipulation without using the Stream API. The project includes sorting and filtering custom objects with Comparator, collection updates using replaceAll(), filtering with removeIf(), and functional-style operations using Java lambdas. Built with Java 17 and Maven as part of university functional programming exercises.",
 
-  githubLink:
-    "https://github.com/Minoo-YH/java-course/tree/feature/lambda-assignment",
-},
+    githubLink:
+      "https://github.com/Minoo-YH/java-course/tree/feature/lambda-assignment",
+  },
+  {
+    projectTitle: "Test-Driven Development (TDD) in Java",
+
+    category: ["java", "junit5", "testing", "maven", "tdd"],
+
+    imgPaths: [tddImg],
+
+    subtitle: "JUnit 5 and Maven testing project",
+
+    description:
+      "A university Java project focused on Test-Driven Development (TDD) using JUnit 5 and Maven. The project includes a Palindrome Checker and a Shopping Cart system fully developed with unit tests first, following professional TDD workflow practices. The application demonstrates assertions, automated testing, refactoring, clean code structure, and Maven-based test execution.",
+
+    githubLink:
+      "https://github.com/Minoo-YH/java-course/tree/feature/tdd-assignment",
+  },
 ];
