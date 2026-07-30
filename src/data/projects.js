@@ -23,6 +23,7 @@ import junitImg from "../assets/junit.png";
 import jcurrencyImg from "../assets/currency.png";
 import lambdaImg from "../assets/t1.png";
 import tddImg from "../assets/ttd2.png";
+import helpDeskImg from "../assets/full.png";
 
 export const myProjects = [
   {
@@ -201,7 +202,7 @@ export const myProjects = [
       "https://github.com/Minoo-YH/java-course/tree/feature/jpa-currency-converter",
   },
   {
-    projectTitle: "My own app",
+    projectTitle: "My own app APUA APP (React Native + TypeScript + Expo)",
     category: ["ReactNative", "TypeScript", "expo"],
     imgPaths: [appImg],
     subtitle:
@@ -294,4 +295,19 @@ export const myProjects = [
     githubLink:
       "https://github.com/Minoo-YH/java-course/tree/feature/tdd-assignment",
   },
+  {
+  projectTitle: "HelpDesk Ticket System",
+  category: ["asp.net core", "c#", "sql server", "jwt", "ef core"],
+
+  imgPaths: [
+    helpDeskImg,
+  ],
+
+  subtitle: "Secure HelpDesk Web API with JWT Authentication",
+
+  description:
+    "A modern HelpDesk Ticket System backend built with ASP.NET Core 8 Web API, Entity Framework Core, SQL Server, JWT Authentication, BCrypt password hashing, Swagger integration, and Docker. The project currently supports user registration, secure login, JWT authorization, and protected API endpoints. Ticket management features are under active development.",
+
+  githubLink: "https://github.com/Minoo-YH/HelpDeskTicketSystem",
+}
 ];
