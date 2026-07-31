@@ -1,61 +1,18 @@
-import { useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
-import AboutImg from "../assets/about.png";
+import { useEffect, useRef } from "react";
 
-/* ========= Progress ========= */
-const ProgressBar = ({ label, value, isVisible }) => (
-  <div className="space-y-2 group">
-    <div className="flex justify-between text-base md:text-lg text-gray-300 font-medium">
-      <span className="group-hover:text-white transition">{label}</span>
-      <span className="text-gray-400">{value}%</span>
-    </div>
-
-    <div className="h-3 bg-white/10 rounded-full overflow-hidden backdrop-blur">
-      <div
-        className="h-full rounded-full bg-gradient-to-r from-green-400 via-blue-400 to-cyan-400 transition-all duration-1000"
-        style={{ width: isVisible ? `${value}%` : "0%" }}
-      />
-    </div>
-  </div>
-);
-
-ProgressBar.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
-  isVisible: PropTypes.bool.isRequired,
-};
-
-/* ========= Count ========= */
-const useCountUp = (end, duration = 1000, trigger = false) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!trigger) return;
-
-    let start = 0;
-    const step = Math.max(Math.floor(duration / end), 20);
-
-    const timer = setInterval(() => {
-      start++;
-      setCount(start);
-      if (start >= end) clearInterval(timer);
-    }, step);
-
-    return () => clearInterval(timer);
-  }, [trigger, end, duration]);
-
-  return count;
-};
-
-/* ========= About ========= */
 export default function About() {
   const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setVisible(true),
-      { threshold: 0.3 },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // once visible, stop observing
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.25 }
     );
 
     const current = ref.current;
@@ -67,159 +24,603 @@ export default function About() {
     };
   }, []);
 
-  const years = useCountUp(2, 800, visible);
-  const projects = useCountUp(15, 1200, visible);
-
   return (
-    <section ref={ref} id="about" className="py-28">
+    <section
+      ref={ref}
+      id="about"
+      className="relative py-32 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6">
+
         {/* TITLE */}
-        <h2 className="text-center mb-20 text-5xl md:text-6xl font-bold">
-          <span className="bg-gradient-to-r from-green-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            About Me
-          </span>
-        </h2>
 
-        {/* MAIN */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="text-center mb-24">
+
+          <p
+            className="
+            uppercase
+            tracking-[0.35em]
+            text-green-400
+            text-sm
+            mb-20"
+          >
+            Get To Know Me
+          </p>
+
+          
+
+        </div>
+
+        {/* CONTENT */}
+
+        <div
+          className="
+          grid
+          lg:grid-cols-2
+          gap-20
+          items-center"
+        >
+
           {/* IMAGE */}
-          <div className="flex-shrink-0">
-            <div className="relative group">
-              <div className="absolute inset-0 blur-3xl bg-green-400/30 rounded-full group-hover:opacity-60 transition"></div>
 
-              <img
-                src={AboutImg}
-                alt="Developer"
-                className="relative z-10 rounded-full object-cover
-                w-[240px] h-[240px]
-                md:w-[300px] md:h-[300px]
-                lg:w-[320px] lg:h-[320px]
-                border border-white/10 shadow-xl
-                group-hover:scale-105 transition duration-300"
+          <div className="flex justify-center">
+
+            <div className="relative group">
+
+              <div
+                className="
+                absolute
+                -inset-8
+                rounded-full
+                blur-3xl
+                bg-gradient-to-r
+                from-green-400/25
+                via-blue-400/20
+                to-cyan-400/25
+                transition
+                duration-700
+                group-hover:scale-110"
               />
+
+             
+
+              {/* INFO CARD */}
+
+              
+
             </div>
+
           </div>
 
           {/* TEXT */}
-          <div className="flex-1 max-w-2xl space-y-6 text-center lg:text-left">
-            <p className="text-xl md:text-2xl text-white font-medium leading-relaxed">
-              I’m a full-stack web and mobile developer who enjoys building
-              modern, clean, and meaningful digital experiences.
+
+          <div>
+
+            <p
+              className="
+              uppercase
+              tracking-[0.3em]
+              text-green-400
+              text-sm
+              mb-5"
+            >
+              Who I Am
             </p>
 
-            <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
-              I work with React, React Native, TypeScript, and Tailwind to build
-              modern interfaces with strong UI/UX focus.
+            <h3
+              className="
+              text-4xl
+              md:text-5xl
+              font-bold
+              leading-tight"
+            >
+              Building Modern Software
+
+              <br />
+
+              <span
+                className="
+                bg-gradient-to-r
+                from-green-400
+                via-blue-400
+                to-cyan-400
+                bg-clip-text
+                text-transparent"
+              >
+                With Purpose
+              </span>
+
+            </h3>
+
+            <p
+              className="
+              mt-8
+              text-lg
+              leading-8
+              text-gray-300"
+            >
+              I'm a Software Engineering student at Metropolia University
+              of Applied Sciences with a passion for Full Stack
+              Development. I enjoy designing scalable web and mobile
+              applications that combine clean architecture,
+              intuitive user experiences and reliable backend systems.
             </p>
 
-            <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
-              On the backend, I use Node.js and Python to build APIs and handle
-              databases like MongoDB.
+            <p
+              className="
+              mt-6
+              text-lg
+              leading-8
+              text-gray-400"
+            >
+              I focus on writing maintainable code, solving real-world
+              problems and continuously improving my engineering skills
+              while exploring modern technologies and best practices.
             </p>
 
-            {/* SKILLS */}
-            <div className="space-y-5 pt-4">
-              <ProgressBar label="HTML & CSS" value={100} isVisible={visible} />
-              <ProgressBar label="React" value={90} isVisible={visible} />
-              <ProgressBar label="Node.js" value={80} isVisible={visible} />
-              <ProgressBar label="JavaScript" value={80} isVisible={visible} />
-              <ProgressBar label="Python" value={80} isVisible={visible} />
-              <ProgressBar label="Java" value={70} isVisible={visible} />
-              <ProgressBar label="MongoDB" value={70} isVisible={visible} />
-              <ProgressBar label="TypeScript" value={70} isVisible={visible} />
-              <ProgressBar
-                label="Git & GitHub"
-                value={80}
-                isVisible={visible}
-              />
-              <ProgressBar
-                label="Tailwind CSS"
-                value={80}
-                isVisible={visible}
-              />
-              <ProgressBar
-                label="UI/UX Design"
-                value={90}
-                isVisible={visible}
-              />
-              <ProgressBar
-                label="Agile Methodologies + Scrum"
-                value={90}
-                isVisible={visible}
-              />
-              <ProgressBar
-                label="Problem Solving & Debugging"
-                value={80}
-                isVisible={visible}
-              />
-              <ProgressBar
-                label="Cybersecurity"
-                value={70}
-                isVisible={visible}
-              />
-              <ProgressBar
-                label="Cloud Platforms (AWS, Azure)"
-                value={60}
-                isVisible={visible}
-              />
+            {/* HIGHLIGHTS */}
+
+            <div className="grid sm:grid-cols-2 gap-4 mt-10">
+
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <h4 className="text-green-400 font-semibold">
+                  Full Stack Development
+                </h4>
+
+                <p className="text-gray-400 mt-2 text-sm leading-6">
+                  Building complete web and mobile solutions from frontend
+                  to backend.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <h4 className="text-blue-400 font-semibold">
+                  Problem Solving
+                </h4>
+
+                <p className="text-gray-400 mt-2 text-sm leading-6">
+                  Turning complex requirements into practical software
+                  solutions.
+                </p>
+              </div>
+                            <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <h4 className="text-cyan-400 font-semibold">
+                  Continuous Learning
+                </h4>
+
+                <p className="text-gray-400 mt-2 text-sm leading-6">
+                  Continuously exploring modern frameworks, cloud
+                  technologies and software engineering practices.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <h4 className="text-green-400 font-semibold">
+                  Team Collaboration
+                </h4>
+
+                <p className="text-gray-400 mt-2 text-sm leading-6">
+                  Enjoy collaborating in Agile teams and contributing
+                  to clean, maintainable software projects.
+                </p>
+              </div>
+
             </div>
-          </div>
-        </div>
 
-        <div className="mt-28 flex justify-center gap-16 flex-wrap">
-          {/* YEARS */}
-          <div
-            className="group relative px-12 py-8 rounded-2xl 
-    bg-black/40 backdrop-blur-xl border border-green-400/20
-    transition duration-300 hover:scale-105"
-          >
-            {/* glow */}
-            <div
-              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition
-      bg-gradient-to-r from-green-400/10 to-blue-500/10 blur-xl"
-            ></div>
+            {/* TECH STACK */}
+
+            <div className="mt-16">
+
+              <p
+                className="
+                uppercase
+                tracking-[0.25em]
+                text-green-400
+                text-sm
+                mb-8"
+              >
+                Technologies & Tools
+              </p>
+
+              <div className="space-y-8">
+
+                {/* FRONTEND */}
+
+                <div>
+
+                  <h4 className="text-xl font-semibold text-white mb-4">
+                    Frontend
+                  </h4>
+
+                  <div className="flex flex-wrap gap-3">
+
+                    {[
+                      "React",
+                      "React Native",
+                      "TypeScript",
+                      "JavaScript",
+                      "Tailwind CSS",
+                      "HTML5",
+                      "CSS3",
+                    ].map((item) => (
+                      <span
+                        key={item}
+                        className="
+                        px-4
+                        py-2
+                        rounded-full
+                        bg-white/5
+                        border
+                        border-white/10
+                        text-gray-300
+                        hover:border-green-400/40
+                        hover:bg-green-400/10
+                        hover:text-green-300
+                        transition-all"
+                      >
+                        {item}
+                      </span>
+                    ))}
+
+                  </div>
+
+                </div>
+
+                {/* BACKEND */}
+
+                <div>
+
+                  <h4 className="text-xl font-semibold text-white mb-4">
+                    Backend
+                  </h4>
+
+                  <div className="flex flex-wrap gap-3">
+
+                    {[
+                      "ASP.NET Core",
+                      "C#",
+                      "Node.js",
+                      "Express.js",
+                      "Java",
+                      "Python",
+                      "REST APIs",
+                    ].map((item) => (
+                      <span
+                        key={item}
+                        className="
+                        px-4
+                        py-2
+                        rounded-full
+                        bg-white/5
+                        border
+                        border-white/10
+                        text-gray-300
+                        hover:border-blue-400/40
+                        hover:bg-blue-400/10
+                        hover:text-blue-300
+                        transition-all"
+                      >
+                        {item}
+                      </span>
+                    ))}
+
+                  </div>
+
+                </div>
+
+                {/* DATABASE */}
+
+                <div>
+
+                  <h4 className="text-xl font-semibold text-white mb-4">
+                    Databases
+                  </h4>
+
+                  <div className="flex flex-wrap gap-3">
+
+                    {[
+                      "SQL Server",
+                      "PostgreSQL",
+                      "MongoDB",
+                      "MySQL",
+                    ].map((item) => (
+                      <span
+                        key={item}
+                        className="
+                        px-4
+                        py-2
+                        rounded-full
+                        bg-white/5
+                        border
+                        border-white/10
+                        text-gray-300
+                        hover:border-cyan-400/40
+                        hover:bg-cyan-400/10
+                        hover:text-cyan-300
+                        transition-all"
+                      >
+                        {item}
+                      </span>
+                    ))}
+
+                  </div>
+
+                </div>
+
+                {/* CLOUD */}
+
+                <div>
+
+                  <h4 className="text-xl font-semibold text-white mb-4">
+                    Cloud & DevOps
+                  </h4>
+
+                  <div className="flex flex-wrap gap-3">
+
+                    {[
+                      "Docker",
+                      "Kubernetes",
+                      "Azure",
+                      "AWS",
+                      "Git",
+                      "GitHub",
+                      "Azure DevOps",
+                    ].map((item) => (
+                      <span
+                        key={item}
+                        className="
+                        px-4
+                        py-2
+                        rounded-full
+                        bg-white/5
+                        border
+                        border-white/10
+                        text-gray-300
+                        hover:border-purple-400/40
+                        hover:bg-purple-400/10
+                        hover:text-purple-300
+                        transition-all"
+                      >
+                        {item}
+                      </span>
+                    ))}
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+               {/* EXPERTISE */}
+
+        <div className="mt-32">
+
+          <div className="text-center mb-16">
+
+            <p
+              className="
+              uppercase
+              tracking-[0.3em]
+              text-green-400
+              text-sm
+              mb-4"
+            >
+              What I Do
+            </p>
 
             <h3
-              className="relative text-6xl md:text-7xl font-extrabold 
-      bg-gradient-to-r from-green-400 to-blue-500 
-      bg-clip-text text-transparent
-      animate-[glowPulse_2.5s_infinite]"
+              className="
+              text-4xl
+              md:text-5xl
+              font-bold"
             >
-              {years}+
+              Engineering Modern Digital Products
             </h3>
 
-            <p className="relative text-gray-400 text-lg mt-3 group-hover:text-white transition">
-              Years Experience
+            <p
+              className="
+              mt-6
+              max-w-3xl
+              mx-auto
+              text-gray-400
+              leading-8"
+            >
+              I enjoy building complete software solutions from intuitive user
+              interfaces to scalable backend systems while focusing on
+              performance, maintainability and user experience.
             </p>
+
           </div>
 
-          {/* PROJECTS */}
-          <div
-            className="group relative px-12 py-8 rounded-2xl 
-    bg-black/40 backdrop-blur-xl border border-blue-400/20
-    transition duration-300 hover:scale-105"
-          >
-            {/* glow */}
+          <div className="grid lg:grid-cols-3 gap-8">
+
+            {/* FRONTEND */}
+
             <div
-              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition
-      bg-gradient-to-r from-blue-400/10 to-cyan-400/10 blur-xl"
-            ></div>
-
-            <h3
-              className="relative text-6xl md:text-7xl font-extrabold 
-      bg-gradient-to-r from-green-400 to-blue-500 
-      bg-clip-text text-transparent
-      animate-[glowPulse_2.5s_infinite]"
+              className="
+              group
+              relative
+              rounded-3xl
+              border
+              border-green-400/20
+              bg-black/40
+              backdrop-blur-xl
+              p-10
+              transition-all
+              duration-500
+              hover:-translate-y-2"
             >
-              {projects}+
-            </h3>
 
-            <p className="relative text-gray-400 text-lg mt-3 group-hover:text-white transition">
-              Projects Completed
-            </p>
+              <div
+                className="
+                absolute
+                inset-0
+                rounded-3xl
+                opacity-0
+                group-hover:opacity-100
+                bg-gradient-to-br
+                from-green-400/10
+                to-blue-500/10
+                blur-xl
+                transition"
+              />
+
+              <h3
+                className="
+                relative
+                text-3xl
+                font-bold
+                bg-gradient-to-r
+                from-green-400
+                to-blue-500
+                bg-clip-text
+                text-transparent"
+              >
+                Frontend Engineering
+              </h3>
+
+              <p
+                className="
+                relative
+                mt-6
+                text-gray-400
+                leading-8"
+              >
+                Creating responsive, accessible and modern web & mobile
+                interfaces using React, React Native and TypeScript with
+                a strong focus on UI, UX and performance.
+              </p>
+
+            </div>
+
+            {/* BACKEND */}
+
+            <div
+              className="
+              group
+              relative
+              rounded-3xl
+              border
+              border-blue-400/20
+              bg-black/40
+              backdrop-blur-xl
+              p-10
+              transition-all
+              duration-500
+              hover:-translate-y-2"
+            >
+
+              <div
+                className="
+                absolute
+                inset-0
+                rounded-3xl
+                opacity-0
+                group-hover:opacity-100
+                bg-gradient-to-br
+                from-blue-400/10
+                to-cyan-400/10
+                blur-xl
+                transition"
+              />
+
+              <h3
+                className="
+                relative
+                text-3xl
+                font-bold
+                bg-gradient-to-r
+                from-blue-400
+                to-cyan-400
+                bg-clip-text
+                text-transparent"
+              >
+                Backend Engineering
+              </h3>
+
+              <p
+                className="
+                relative
+                mt-6
+                text-gray-400
+                leading-8"
+              >
+                Designing REST APIs and scalable backend applications using
+                ASP.NET Core, Node.js, Java and SQL technologies while
+                following clean architecture principles.
+              </p>
+
+            </div>
+
+            {/* CLOUD */}
+
+            <div
+              className="
+              group
+              relative
+              rounded-3xl
+              border
+              border-cyan-400/20
+              bg-black/40
+              backdrop-blur-xl
+              p-10
+              transition-all
+              duration-500
+              hover:-translate-y-2"
+            >
+
+              <div
+                className="
+                absolute
+                inset-0
+                rounded-3xl
+                opacity-0
+                group-hover:opacity-100
+                bg-gradient-to-br
+                from-cyan-400/10
+                to-green-400/10
+                blur-xl
+                transition"
+              />
+
+              <h3
+                className="
+                relative
+                text-3xl
+                font-bold
+                bg-gradient-to-r
+                from-cyan-400
+                to-green-400
+                bg-clip-text
+                text-transparent"
+              >
+                Cloud & DevOps
+              </h3>
+
+              <p
+                className="
+                relative
+                mt-6
+                text-gray-400
+                leading-8"
+              >
+                Building cloud-ready applications with Docker, Azure,
+                AWS and modern Git workflows while focusing on
+                deployment, scalability and reliability.
+              </p>
+
+            </div>
+
           </div>
+
         </div>
+
       </div>
     </section>
   );
-}
+} 
