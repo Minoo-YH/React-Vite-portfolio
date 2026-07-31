@@ -28,6 +28,7 @@ import helpDeskImg from "../assets/full.png";
 export const myProjects = [
   {
     projectTitle: "CRUD",
+    group: "web",
     category: ["react", "node", "express", "vite"],
     imgPaths: [crudImg],
     subtitle: "React + Node CRUD app with GitHub Pages deployment",
@@ -38,6 +39,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Metropolia web development course  ",
+    group: "web",
     category: ["react", "node", "express", "mongodb"],
     imgPaths: [webImg],
     subtitle: "Full-stack web development course",
@@ -46,6 +48,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Employee management",
+    group: "web",
     category: ["react"],
     imgPaths: [empImg],
     subtitle: "Web app for managing data",
@@ -54,6 +57,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Python",
+    group: "python",
     category: ["python"],
     imgPaths: [pyImg],
     subtitle: "Python full course with different projects",
@@ -62,6 +66,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Full-stack website",
+    group: "featured",
     category: ["react", "node", "express", "mongodb"],
     imgPaths: [travelImg],
     subtitle: "Group project — Travel website",
@@ -71,6 +76,7 @@ export const myProjects = [
   },
   {
     projectTitle: "CoreOrient OY website",
+    group: "experience",
     category: ["WordPress with plugins"],
     imgPaths: [wpImg],
     subtitle: "Update the website + add cyber security + SEO",
@@ -80,6 +86,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Bank management system",
+    group: "web",
     category: ["c++"],
     imgPaths: [bankImg],
     subtitle: "Bank management system",
@@ -88,6 +95,7 @@ export const myProjects = [
   },
   {
     projectTitle: "React native frontend mobile developer with expo",
+    group: "experience",
     category: ["react native expo", "typescript"],
     imgPaths: [rnImg],
     subtitle: "Vesko mobile app internship",
@@ -98,6 +106,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Flight Game — Python Flight Booking Simulation",
+    group: "python",
     category: ["python", "mysql", "cli"],
     imgPaths: [flightImg],
     subtitle: "Group project (3 contributors) — Console app",
@@ -108,6 +117,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Barbershop website",
+    group: "web",
     category: ["react", "tailwind"],
     imgPaths: [barbershop],
     subtitle: "Responsive landing site",
@@ -117,6 +127,7 @@ export const myProjects = [
   },
   {
     projectTitle: "React 19 Workshop — Future Front Development",
+    group: "web",
     category: ["react", "react 19", "workshop"],
     imgPaths: [react19Img],
     subtitle: "Hands-on workshop",
@@ -127,6 +138,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Metropolia AI Service Router",
+    group: "python",
     category: ["flask", "python", "ai-concept"],
     imgPaths: [aiRouterImg],
     subtitle: "AI-style assistant concept demo for Metropolia students",
@@ -137,6 +149,7 @@ export const myProjects = [
   },
   {
     projectTitle: "LuxeScents Perfume Store",
+    group: "web",
     category: ["react", "tailwind", "frontend"],
     imgPaths: [luxurywebImg],
     subtitle: "Modern perfume landing page",
@@ -148,6 +161,7 @@ export const myProjects = [
 
   {
     projectTitle: "Help Connect",
+    group: "featured",
     category: ["react", "frontend", "figma", "ui/ux"],
     imgPaths: [helpCimage],
     subtitle: "Community help & support platform",
@@ -160,6 +174,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Metropolia Java courses",
+    group: "java",
     category: ["java", "javafix", "intellij"],
     imgPaths: [javaImg],
     subtitle: "University task — Full stack contribution",
@@ -169,6 +184,7 @@ export const myProjects = [
   },
   {
     projectTitle: "JUnit Testing & Maven Setup",
+    group: "java",
     category: ["java", "junit5", "maven", "testing"],
     imgPaths: [junitImg],
 
@@ -182,6 +198,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Metropolia Java project",
+    group: "java",
     category: ["java", "javafix", "intellij"],
     imgPaths: [javaprojectImg],
     subtitle: "University full stack java project",
@@ -191,6 +208,7 @@ export const myProjects = [
   },
   {
     projectTitle: "JPA Currency Converter",
+    group: "java",
     category: ["java", "javafx", "hibernate", "jpa", "mariadb"],
     imgPaths: [jcurrencyImg],
     subtitle: "Desktop currency manager with JavaFX and Hibernate ORM",
@@ -203,6 +221,7 @@ export const myProjects = [
   },
   {
     projectTitle: "My own app APUA APP (React Native + TypeScript + Expo)",
+    group: "featured",
     category: ["ReactNative", "TypeScript", "expo"],
     imgPaths: [appImg],
     subtitle:
@@ -214,6 +233,7 @@ export const myProjects = [
 
   {
     projectTitle: "Latst Flight — Python Flight Game Simulation",
+    group: "python",
     category: ["python", "mysql", "ui/ux", "figma"],
     imgPaths: [lastflight],
     subtitle: "University project — Full UI/UX + Frontend contribution",
@@ -229,6 +249,7 @@ export const myProjects = [
 
   {
     projectTitle: "🐾 Virtual Pet (JavaFX)",
+    group: "java",
     category: ["java", "javafx", "mvc", "animation"],
     imgPaths: [petImg], // or add a separate image like virtualPetImg
     subtitle: "Interactive JavaFX virtual pet simulation",
@@ -239,6 +260,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Simple Dictionary (JavaFX)",
+    group: "java",
     category: ["java", "javafx", "mvc", "maven"],
     imgPaths: [javaImg],
     subtitle: "Desktop dictionary application with JavaFX",
@@ -249,6 +271,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Currency Converter (JavaFX + MariaDB)",
+    group: "java",
     category: ["java", "javafx", "jdbc", "mariadb", "mvc"],
     imgPaths: [currencyImg],
     subtitle: "Desktop currency converter with database integration",
@@ -259,6 +282,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Currency Converter JPA",
+    group: "java",
     category: ["java", "javafx", "hibernate", "jpa", "mariadb"],
     imgPaths: [currencyImg],
     subtitle: "Desktop currency converter with Hibernate ORM",
@@ -269,6 +293,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Lambda Exercises in Java",
+    group: "java",
     category: ["java", "lambda", "functional-programming", "maven"],
     imgPaths: [lambdaImg],
 
@@ -282,7 +307,7 @@ export const myProjects = [
   },
   {
     projectTitle: "Test-Driven Development (TDD) in Java",
-
+    group: "java",
     category: ["java", "junit5", "testing", "maven", "tdd"],
 
     imgPaths: [tddImg],
@@ -297,6 +322,7 @@ export const myProjects = [
   },
   {
   projectTitle: "HelpDesk Ticket System",
+  group: "featured",
   category: ["asp.net core", "c#", "sql server", "jwt", "ef core"],
 
   imgPaths: [
