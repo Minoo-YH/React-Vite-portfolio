@@ -6,105 +6,314 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const scrollWithOffset = useCallback((el) => {
-    const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
-    window.scrollTo({ top: y, behavior: "smooth" });
+    const y =
+      el.getBoundingClientRect().top +
+      window.pageYOffset -
+      110;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
+
     setOpen(false);
   }, []);
 
-  const links = ["Home", "About", "Services", "Projects", "Contact"];
+  const links = [
+    "Home",
+    "About",
+    "Services",
+    "Projects",
+    "Contact",
+  ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
-      <div className="mx-auto max-w-7xl mt-6 px-6">
-        {/* Navbar Box */}
+      <div
+        className="
+          mx-auto
+          max-w-7xl
+          px-3
+          sm:px-5
+          lg:px-6
+          pt-3
+          sm:pt-4
+          lg:pt-6
+        "
+      >
+        {/* NAVBAR */}
         <div
-          className="flex items-center justify-between px-8 py-4 rounded-full
-          bg-black/60 backdrop-blur-2xl border border-white/10
-          shadow-[0_0_40px_rgba(34,197,94,0.08)]"
+          className="
+            flex
+            items-center
+            justify-between
+
+            px-4
+            sm:px-6
+            lg:px-8
+
+            py-3
+            sm:py-4
+
+            rounded-full
+
+            bg-black/60
+            backdrop-blur-2xl
+
+            border
+            border-white/10
+
+            shadow-[0_0_40px_rgba(34,197,94,0.08)]
+          "
         >
-          {/* Logo */}
+          {/* LOGO */}
           <Link
             to="/"
-            className="text-3xl font-semibold tracking-wide text-white"
+            onClick={() => setOpen(false)}
+            className="
+              text-xl
+              sm:text-2xl
+              lg:text-3xl
+
+              font-semibold
+              tracking-wide
+              text-white
+
+              shrink-0
+            "
           >
             Minoo
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-12 text-lg">
+          {/* DESKTOP MENU */}
+          <div
+            className="
+              hidden
+              lg:flex
+              items-center
+
+              gap-5
+              xl:gap-10
+
+              text-base
+              xl:text-lg
+            "
+          >
             {links.map((item) => (
               <HashLink
                 key={item}
                 smooth
-                to={`/#${item === "Home" ? "" : item.toLowerCase()}`}
+                to={`/#${
+                  item === "Home"
+                    ? ""
+                    : item.toLowerCase()
+                }`}
                 scroll={scrollWithOffset}
-                className="relative text-white/80 hover:text-white font-medium transition duration-300 group"
+                className="
+                  relative
+                  whitespace-nowrap
+
+                  text-white/80
+                  hover:text-white
+
+                  font-medium
+
+                  transition
+                  duration-300
+
+                  group
+                "
               >
                 {item}
 
-                {/* Glow underline */}
                 <span
-                  className="absolute left-0 -bottom-1 w-0 h-[2px]
-                  bg-gradient-to-r from-green-400 to-blue-500
-                  transition-all duration-300 group-hover:w-full
-                  shadow-[0_0_12px_#22c55e]"
+                  className="
+                    absolute
+                    left-0
+                    -bottom-1
+
+                    w-0
+                    h-[2px]
+
+                    bg-gradient-to-r
+                    from-green-400
+                    to-blue-500
+
+                    transition-all
+                    duration-300
+
+                    group-hover:w-full
+
+                    shadow-[0_0_12px_#22c55e]
+                  "
                 />
               </HashLink>
             ))}
 
-            {/* Hobby */}
+            {/* HOBBY */}
             <Link
               to="/hobby"
-              className="relative text-white/80 hover:text-white font-medium transition group"
+              className="
+                relative
+                whitespace-nowrap
+
+                text-white/80
+                hover:text-white
+
+                font-medium
+
+                transition
+
+                group
+              "
             >
               Hobby
+
               <span
-                className="absolute left-0 -bottom-1 w-0 h-[2px]
-                bg-gradient-to-r from-green-400 to-blue-500
-                transition-all duration-300 group-hover:w-full"
+                className="
+                  absolute
+                  left-0
+                  -bottom-1
+
+                  w-0
+                  h-[2px]
+
+                  bg-gradient-to-r
+                  from-green-400
+                  to-blue-500
+
+                  transition-all
+                  duration-300
+
+                  group-hover:w-full
+                "
               />
             </Link>
           </div>
 
-          {/* Right */}
-          <div className="flex items-center gap-4">
-            {/* CTA */}
+          {/* RIGHT */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            {/* DESKTOP CONTACT */}
             <HashLink
               smooth
               to="/#contact"
               scroll={scrollWithOffset}
-              className="hidden md:inline-block px-8 py-3 rounded-full
-              bg-gradient-to-r from-green-400 to-blue-500 
-              text-black font-semibold text-base
-              transition duration-300 hover:scale-105
-              hover:shadow-[0_0_30px_#22c55e]"
+              className="
+                hidden
+                lg:inline-flex
+
+                items-center
+                justify-center
+
+                px-6
+                xl:px-8
+
+                py-3
+
+                rounded-full
+
+                bg-gradient-to-r
+                from-green-400
+                to-blue-500
+
+                text-black
+                font-semibold
+                text-base
+
+                transition
+                duration-300
+
+                hover:scale-105
+                hover:shadow-[0_0_30px_#22c55e]
+              "
             >
               Contact
             </HashLink>
 
-            {/* Mobile Toggle */}
+            {/* MOBILE BUTTON */}
             <button
-              onClick={() => setOpen(!open)}
-              className="md:hidden text-white text-2xl"
+              type="button"
+              aria-label="Toggle navigation"
+              aria-expanded={open}
+              onClick={() => setOpen((prev) => !prev)}
+              className="
+                lg:hidden
+
+                w-9
+                h-9
+                sm:w-10
+                sm:h-10
+
+                flex
+                items-center
+                justify-center
+
+                rounded-full
+
+                text-white
+                text-xl
+                sm:text-2xl
+
+                hover:bg-white/10
+
+                transition
+              "
             >
               {open ? "✕" : "☰"}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* MOBILE / TABLET MENU */}
         {open && (
           <div
-            className="md:hidden mt-5 rounded-2xl bg-black/90 backdrop-blur-2xl
-            border border-white/10 px-6 py-6 flex flex-col gap-6 text-lg"
+            className="
+              lg:hidden
+
+              mt-3
+
+              rounded-2xl
+
+              bg-black/95
+              backdrop-blur-2xl
+
+              border
+              border-white/10
+
+              px-5
+              sm:px-6
+
+              py-5
+              sm:py-6
+
+              flex
+              flex-col
+
+              gap-4
+              sm:gap-5
+
+              text-base
+              sm:text-lg
+
+              shadow-2xl
+            "
           >
             {links.map((item) => (
               <HashLink
                 key={item}
                 smooth
-                to={`/#${item === "Home" ? "" : item.toLowerCase()}`}
+                to={`/#${
+                  item === "Home"
+                    ? ""
+                    : item.toLowerCase()
+                }`}
                 scroll={scrollWithOffset}
-                className="text-white hover:text-green-400 font-medium transition"
+                className="
+                  text-white
+                  hover:text-green-400
+                  font-medium
+                  transition
+                "
               >
                 {item}
               </HashLink>
@@ -112,18 +321,41 @@ const Navbar = () => {
 
             <Link
               to="/hobby"
-              className="text-white hover:text-green-400 font-medium transition"
+              onClick={() => setOpen(false)}
+              className="
+                text-white
+                hover:text-green-400
+                font-medium
+                transition
+              "
             >
               Hobby
             </Link>
 
+            {/* MOBILE CONTACT */}
             <HashLink
               smooth
               to="/#contact"
               scroll={scrollWithOffset}
-              className="mt-3 text-center px-6 py-3 rounded-full
-              bg-gradient-to-r from-green-400 to-blue-500 
-              text-black font-semibold"
+              className="
+                mt-2
+
+                w-full
+
+                text-center
+
+                px-6
+                py-3
+
+                rounded-full
+
+                bg-gradient-to-r
+                from-green-400
+                to-blue-500
+
+                text-black
+                font-semibold
+              "
             >
               Contact
             </HashLink>
