@@ -2,7 +2,7 @@ import { HashLink } from "react-router-hash-link";
 import { FaGithub, FaLinkedin, FaDownload, FaArrowRight } from "react-icons/fa";
 
 import HeroImg from "../assets/minoo.png";
-import ResumeFile from "../assets/resume2024.pdf";
+import ResumeFile from "../assets/Minoo_Yaghoubi_Resume_Master.pdf";
 
 import WindBackground from "./WindBackground";
 import DeveloperTerminal from "./DeveloperTerminal";
@@ -334,6 +334,7 @@ const Hero = () => {
 
               <a
                 href={ResumeFile}
+                download="Resume_Minoo_Yaghoubi.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
