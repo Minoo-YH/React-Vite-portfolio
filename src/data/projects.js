@@ -23,6 +23,7 @@ import jcurrencyImg from "../assets/currency.png";
 import lambdaImg from "../assets/t1.png";
 import tddImg from "../assets/ttd2.png";
 import helpDeskImg from "../assets/full.png";
+import coverageImg from "../assets/coverage_report.png";
 
 export const myProjects = [
   /* ===========================================================
@@ -339,6 +340,17 @@ export const myProjects = [
     description:
       "A Java project created to practice the Abstract Factory design pattern. The application generates ASCII-based UI elements including buttons, text fields, and checkboxes using two different UI styles. It demonstrates factory-based object creation, shared UI abstractions, object-oriented programming, and switching between UI families without changing the client code.",
     githubLink: "https://github.com/Minoo-YH/ascii-ui-abstract-factory",
+  },
+  {
+    projectTitle: "Temperature Converter — Testing & Code Coverage",
+    group: "java",
+    category: ["java", "junit5", "maven", "jacoco", "jenkins", "testing"],
+    imgPaths: [coverageImg],
+    subtitle:
+      "Java unit testing and code coverage with JUnit, JaCoCo and Jenkins",
+    description:
+      "A university Java assignment focused on unit testing and code coverage. I implemented temperature conversions including Kelvin to Celsius, wrote JUnit 5 tests, generated JaCoCo coverage reports, and configured Jenkins to automatically build and test the project with Maven. The final test suite achieved 100% code coverage.",
+    githubLink: "https://github.com/Minoo-YH/JaCoC0",
   },
 
   {
